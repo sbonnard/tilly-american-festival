@@ -1,5 +1,5 @@
 /* RESET  */
-@use 'var';
+@use 'var' as var;
 
 * {
     box-sizing: border-box;
@@ -17,10 +17,6 @@ a:link,
 a:visited {
     text-decoration: none;
     color: inherit;
-}
-
-a:hover {
-    animation: neon-blink 1s infinite;
 }
 
 button {
@@ -41,7 +37,7 @@ input[type="submit"] {
 input[type="color"] {
     appearance: none;
     cursor: pointer;
-    background-color: $white;
+    background-color: var.$white;
 }
 
 main {

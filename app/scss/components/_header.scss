@@ -1,0 +1,11 @@
+@use '../var' as var;
+
+.header {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1.5rem;
+    background-color: var.$coal50;
+}

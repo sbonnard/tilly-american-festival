@@ -1,5 +1,5 @@
 // BODY //
-@use 'var';
+@use 'var' as var;
 @use 'fonts';
 
 body {
@@ -8,7 +8,7 @@ body {
   background-image: url(../img/darkwood.webp);
   background-size: cover;
   background-attachment: fixed;
-  color: $white;
+  color: var.$white;
   cursor: default;
   overflow-x: hidden;
 }
