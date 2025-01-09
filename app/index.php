@@ -57,13 +57,13 @@ require_once 'includes/templates/_head.php';
                         <img src="img/trouble.png" alt="Photo de Johnny Trouble">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in urna luctus tortor porta tincidunt.</p>
                         <div class="linktree">
-                            <a href="https://johnny-trouble.com">
+                            <a href="https://johnny-trouble.com" target="_blank">
                                 <img class="linktree__icon" src="img/web.svg" alt="Symbole du web">
                             </a>
-                            <a href="https://www.instagram.com/johnnytrouble_official/">
+                            <a href="https://www.instagram.com/johnnytrouble_official/" target="_blank">
                                 <img class="linktree__icon" src="img/insta.svg" alt="Logo d'instagram">
                             </a>
-                            <a href="https://www.youtube.com/@JohnnyTroubleOfficial">
+                            <a href="https://www.youtube.com/@JohnnyTroubleOfficial" target="_blank">
                                 <img class="linktree__icon" src="img/youtube.svg" alt="Logo Youtube">
                             </a>
                         </div>
