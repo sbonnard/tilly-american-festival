@@ -1,0 +1,12 @@
+@use '../var' as var;
+
+.artist {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid var.$white;
+    border-bottom: 2px solid var.$white;
+}
