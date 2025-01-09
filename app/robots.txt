@@ -1,0 +1,14 @@
+# Bloquer les robots uniquement sur un dossier spécifique
+# Permet d'optimiser le temps d'indexation de dossiers inutiles en SEO
+User-agent: *
+Disallow: /fonts/
+Disallow: /img/
+Disallow: /includes/
+Disallow: /js/
+
+
+# Empêcher l'indexation de certaines pages
+# Permet d'optimiser le temps d'indexation de pages inutiles en SEO
+User-agent: *
+
+Disallow: /actions.php

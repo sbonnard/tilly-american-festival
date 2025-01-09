@@ -1,0 +1,22 @@
+{
+  "name": "taf",
+  "version": "1.0.0",
+  "description": "Personnal portfolio",
+  "main": "js/script.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.80.7",
+    "vite": "^5.2.11"
+  },
+  "dependencies": {
+    "aos": "^2.3.4"
+  }
+}

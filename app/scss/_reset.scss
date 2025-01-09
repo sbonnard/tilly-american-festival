@@ -1,0 +1,49 @@
+/* RESET  */
+@use 'var';
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+a:link,
+a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    animation: neon-blink 1s infinite;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    cursor: pointer;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input[type="color"] {
+    appearance: none;
+    cursor: pointer;
+    background-color: $white;
+}
+
+main {
+    min-height: 90vh;
+}
