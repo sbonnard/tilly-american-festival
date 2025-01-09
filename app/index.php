@@ -32,9 +32,9 @@ require_once 'includes/templates/_head.php';
         </nav>
     </header>
     <main>
-        <div class="herobanner">
+        <div class="herobanner" data-aos="zoom-in">
             <div class="herobanner__container">
-                <img class="herobanner__ttl" src="img/taf.webp" alt="Titre du Tilly American Festival">
+                <img class="herobanner__ttl" src="img/taf.webp" alt="Titre du Tilly American Festival" data-aos="zoom-out" data-aos-delay="1000">
             </div>
         </div>
 
@@ -75,5 +75,9 @@ require_once 'includes/templates/_head.php';
 
     </main>
 </body>
+
+<script>
+    AOS.init();
+</script>
 
 </html>

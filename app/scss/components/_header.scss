@@ -8,6 +8,7 @@
     position: fixed;
     padding: 1.5rem;
     background-color: var.$coal50;
+    z-index: 5000;
 
     &__logo {
         width: 5rem;
