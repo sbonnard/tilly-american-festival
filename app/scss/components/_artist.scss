@@ -9,4 +9,23 @@
     justify-content: center;
     border-top: 2px solid var.$white;
     border-bottom: 2px solid var.$white;
+    width: 20.5rem;
+
+    &__img {
+        width: 18.75rem;
+        aspect-ratio: 1/1;
+    }
+
+
+    &__section {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @media screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6.25rem;
+        }
+    }
 }

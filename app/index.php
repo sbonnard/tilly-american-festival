@@ -9,8 +9,8 @@ require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
 require_once 'includes/classes/class.band.php';
 
-// var_dump($bands);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,27 +54,28 @@ require_once 'includes/classes/class.band.php';
                 <img src="img/horns.webp" alt="Cornes de boeuf">
                 <h2 class="ttl" id="program">La Programmation</h2>
 
+                <!-- // Programmation du samedi -->
                 <div class="section">
                     <h3 class="ttl ttl--small">Le samedi</h3>
 
-                    <div class="artist">
-                        <h4 class="ttl">Johnny Trouble</h4>
-                        <img src="img/trouble.webp" alt="Photo de Johnny Trouble">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in urna luctus tortor porta tincidunt.</p>
-                        <div class="linktree">
-                            <a href="https://johnny-trouble.com" target="_blank">
-                                <img class="linktree__icon" src="img/web.svg" alt="Symbole du web">
-                            </a>
-                            <a href="https://www.instagram.com/johnnytrouble_official/" target="_blank">
-                                <img class="linktree__icon" src="img/insta.svg" alt="Logo d'instagram">
-                            </a>
-                            <a href="https://www.youtube.com/@JohnnyTroubleOfficial" target="_blank">
-                                <img class="linktree__icon" src="img/youtube.svg" alt="Logo Youtube">
-                            </a>
-                        </div>
+                    <div class="artist__section">
+                        <?= getBandAsHTML($dbCo, $bandsSaturday); ?>
                     </div>
 
                 </div>
+
+                <!-- <img src="img/car.webp" alt="Voiture ancienne"> -->
+                 <div class="separator--car"></div>
+
+                <!-- // Programmation du dimanche -->
+                <div class="section">
+                    <h3 class="ttl ttl--small">Le dimanche</h3>
+
+                    <div class="artist__section">
+                        <?= getBandAsHTML($dbCo, $bandsSunday); ?>
+                    </div>
+                </div>
+
             </section>
         </div>
 
