@@ -29,6 +29,13 @@ function getBandPerYearPerDay(PDO $dbCo, INT $theDay): array
 }
 
 
+/**
+ * Generates an HTML string from a band array.
+ *
+ * @param PDO $dbCo - Connection to database.
+ * @param array $bands - The band array.
+ * @return string - The generated HTML string.
+ */
 function getBandAsHTML(PDO $dbCo, array $bands): string
 {
     $htmlBands = '';
