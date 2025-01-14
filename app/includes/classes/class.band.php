@@ -41,10 +41,10 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
     $htmlBands = '';
 
     foreach ($bands as $key => $band) {
-        $htmlBands .= '<div class="artist">
-            <h4 class="ttl">' . $band['name'] . '</h4>
+        $htmlBands .= '<div class="artist" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">
+            <h4 class="artist__name">' . $band['name'] . '</h4>
             <img class="artist__img" src="img/' . $band['img_url'] . '" alt="Photo de ' . $band['name'] . '">
-            <p>' . $band['description'] . '</p>
+            <p class="artist__description">' . $band['description'] . '</p>
             <div class="linktree">';
 
         foreach (fetchBandLinks($dbCo, $band) as $link) {

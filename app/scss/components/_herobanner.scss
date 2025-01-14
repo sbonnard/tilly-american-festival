@@ -11,11 +11,18 @@
     background-attachment: fixed;
 
     &__container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         max-width: 90vw;
         margin: 0 1rem;
     }
 
     &__ttl {
         width: 100%;
+
+        @media screen and (min-width: 768px) {
+            width: 75%;
+        }
     }
 }

@@ -6,10 +6,23 @@
     gap: 1.5rem;
     padding: 1rem 0;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border-top: 2px solid var.$white;
     border-bottom: 2px solid var.$white;
     width: 20.5rem;
+
+    &__name {
+        font-family: 'backcountry', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        font-size: 2rem;
+        min-height: 3rem;
+
+        @media screen and (min-width: 768px) {
+            font-size: 1.5rem;
+        }
+    }
 
     &__img {
         width: 18.75rem;
@@ -27,5 +40,9 @@
             grid-template-columns: 1fr 1fr;
             gap: 6.25rem;
         }
+    }
+
+    &__description {
+        min-height: 4rem;
     }
 }
