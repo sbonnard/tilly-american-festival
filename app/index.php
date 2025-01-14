@@ -1,10 +1,15 @@
 <?php
 session_start();
 
+require_once 'includes/_database.php';
 require_once 'includes/_config.php';
 require_once 'includes/_security.php';
 require_once 'includes/_functions.php';
+require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
+require_once 'includes/classes/class.band.php';
+
+// var_dump($bands);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +59,7 @@ require_once 'includes/templates/_head.php';
 
                     <div class="artist">
                         <h4 class="ttl">Johnny Trouble</h4>
-                        <img src="img/trouble.png" alt="Photo de Johnny Trouble">
+                        <img src="img/trouble.webp" alt="Photo de Johnny Trouble">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in urna luctus tortor porta tincidunt.</p>
                         <div class="linktree">
                             <a href="https://johnny-trouble.com" target="_blank">
