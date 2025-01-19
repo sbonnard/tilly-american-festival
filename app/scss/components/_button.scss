@@ -33,6 +33,15 @@
             }
         }
     }
+
+    &--contact {
+        width: 11.75rem;
+        text-align: center;
+
+        &:hover {
+            box-shadow: inset 11.75rem 0 0 0 var.$red;
+        }
+    }
 }
 
 

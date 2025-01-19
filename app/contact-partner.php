@@ -62,6 +62,8 @@ require_once 'includes/classes/class.merchant.php';
                     </li>
                 </ul>
 
+<input class="button button--contact slide-right" type="button" value="Envoyer">
+
             </form>
         </div>
 
