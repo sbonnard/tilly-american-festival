@@ -6,6 +6,7 @@ require_once 'includes/_config.php';
 require_once 'includes/_security.php';
 require_once 'includes/_functions.php';
 require_once 'includes/_datas.php';
+require_once 'includes/_message.php';
 require_once 'includes/templates/_head.php';
 require_once 'includes/templates/_header.php';
 require_once 'includes/templates/_footer.php';
@@ -13,7 +14,7 @@ require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
 require_once 'includes/classes/class.merchant.php';
 
-$token = generateToken();
+generateToken();
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +40,12 @@ $token = generateToken();
             <form class="form" action="actions.php" method="post">
                 <ul class="form__lst">
                     <li class="form__item">
-                        <label class="form__label" for="name">Votre nom <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="name" id="name" required autofocus>
+                        <label class="form__label" for="fullname">Votre nom complet <span class="form__asterisk" aria-hidden="true">*</span></label>
+                        <input class="form__input" type="text" name="fullname" id="fullname" required autofocus>
                     </li>
                     <li class="form__item">
-                        <label class="form__label" for="name">Votre entreprise</label>
-                        <input class="form__input" type="text" name="name" id="name" required autofocus>
+                        <label class="form__label" for="enterprise">Votre entreprise</label>
+                        <input class="form__input" type="text" name="enterprise" id="enterprise" required autofocus>
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="email">Votre email <span class="form__asterisk" aria-hidden="true">*</span></label>
@@ -64,8 +65,8 @@ $token = generateToken();
                         <textarea class="form__textarea" name="message" id="message" cols="30" rows="10" required></textarea>
                     </li>
                 </ul>
-                <input class="button button--contact slide-right" type="button" value="Envoyer">
-                <input type="hidden" name="token" value="<?= $token; ?>">
+                <input class="button button--contact slide-right" type="submit" value="Envoyer">
+                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                 <input type="hidden" name="action" value="contact-partner">
             </form>
         </div>

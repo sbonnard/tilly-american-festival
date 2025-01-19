@@ -1,7 +1,8 @@
 <?php
 
 $messages = [
-    'message_ok' => 'Message envoyé ! Je vous recontacte dès que possible.'
+    'message_ok' => 'Message envoyé ! Je vous recontacte dès que possible.',
+    'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.'
 ];
 
 $errors = [
@@ -9,10 +10,12 @@ $errors = [
     'referer' => 'D\'où venez vous ?',
     'no_action' => 'Aucune action détectée.',
     'fullname_ko' => 'Le nom saisi n\'est pas valide.',
+    'enterprise_ko' => 'Le nom d\'entreprise saisi n\'est pas valide.',
     'email_ko' => 'L\'email saisi n\'est pas valide.',
     'subject_ko' => 'Le sujet saisi n\'est pas valide.',
     'message_content_ko' => 'Merci de saisir un message.',
-    'message_ko' => 'Échec lors de l\'envoi du message'
+    'message_ko' => 'Échec lors de l\'envoi du message',
+    'message_partner_ko' => 'Échec lors de l\'envoi du message'
 ];
 
 
