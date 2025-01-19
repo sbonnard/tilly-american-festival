@@ -34,10 +34,17 @@ require_once 'includes/classes/class.sponsor.php';
                 <a href="contact-partner.php" class="button button--partner">Vous souhaitez nous rejoindre ?</a>
             </section>
 
-            <div class="dropdown-banner">
-                <h2 class="ttl ttl--red">Nos Sponsors</h2>
-                <img src="img/arrow-down.svg" alt="Flèche descendante">
-            </div>
+            <section class="section" aria-labelledby="sponsor-ttl">
+                <button id="sponsor-dropdown" class="dropdown-banner" aria-label="Afficher ou masquer la liste des sponsors" aria-expanded="false">
+                    <h2 class="ttl ttl--red">Nos Sponsors</h2>
+                    <img src="img/arrow-down.svg" alt="Flèche descendante">
+                </button>
+
+                <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                    <?= listSponsorsHTML($activeSponsors); ?>
+                </div>
+
+            </section>
         </div>
 
         <?= displayCowquitaf(); ?>
@@ -54,5 +61,6 @@ require_once 'includes/classes/class.sponsor.php';
     AOS.init();
 </script>
 <script type="module" src="js/burger.js"></script>
+<script type="module" src="js/dropdown.js"></script>
 
 </html>
