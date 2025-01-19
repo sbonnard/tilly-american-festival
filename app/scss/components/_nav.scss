@@ -1,0 +1,33 @@
+@use "../var" as var;
+
+.nav {
+
+    &__lst {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+        }
+    }
+    
+    &__lnk {
+        color: var.$white;
+
+        &:hover {
+            color: var.$red;
+        }
+
+        &--current {
+            color: var.$red;
+            font-weight: bold;
+        }
+    }
+
+    &__itm {
+        font-size: 1.25rem;
+    }
+}

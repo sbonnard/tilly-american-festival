@@ -7,6 +7,7 @@ require_once 'includes/_security.php';
 require_once 'includes/_functions.php';
 require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
+require_once 'includes/templates/_header.php';
 require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
 
@@ -21,36 +22,7 @@ require_once 'includes/classes/class.sponsor.php';
 
 <body>
     <header class="header">
-        <a href="index.php">
-            <img class="header__logo" src="img/logo.svg" alt="Logo du Tilly American Festival">
-        </a>
-        <div class="hamburger">
-            <a href="#menu" id="hamburger-menu-icon" aria-label="Ouvrir le hamburger">
-                <img id="burgerSvg" src="img/burger.svg" alt="Menu Hamburger">
-            </a>
-        </div>
-        <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
-            <ul class="nav__lst" id="nav-list">
-                <li class="nav__itm nav__lnk--current">
-                    <a href="index.php">Accueil</a>
-                </li>
-                <li class="nav__itm nav__lnk--current">
-                    <a href="wheretaf.php">Où sommes-nous ?</a>
-                </li>
-                <li class="nav__itm nav__lnk--current">
-                    <a href="partners.php">Nos partenaires</a>
-                </li>
-                <li class="nav__itm nav__lnk--current">
-                    <a href="gallery.php">Galerie</a>
-                </li>
-                <li class="nav__itm nav__lnk--current">
-                    <a href="association.php">L'association</a>
-                </li>
-                <li class="nav__itm nav__lnk--current">
-                    <a href="contact.php">Nous contacter</a>
-                </li>
-            </ul>
-        </nav>
+<?= fetchHeader('nav__lnk--current'); ?>
     </header>
     <main>
         <div class="herobanner" data-aos="zoom-in">
