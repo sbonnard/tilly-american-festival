@@ -10,4 +10,16 @@
     @media screen and (min-width: 768px) {
         margin: 3rem auto;
     }
+
+    &--error {
+        padding: 2rem 0;
+
+        @media screen and (min-width: 768px) {
+            padding: 6rem 0;
+        }
+
+        @media screen and (min-width: 1800px) {
+            padding: 10rem 0;
+        }
+    }
 }

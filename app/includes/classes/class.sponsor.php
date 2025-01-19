@@ -31,7 +31,7 @@ function fetchActiveSponsors(PDO $dbCo): array
  * @param array $sponsors - An array containing all active sponsors
  * @return string - The generated HTML list
  */
-function listSponsorsHTML(array $sponsors)
+function listSponsorsHTML(array $sponsors, string $source = ''): string
 {
     $sponsorList = '<ul class="sponsor__list">';
 
@@ -42,7 +42,7 @@ function listSponsorsHTML(array $sponsors)
     foreach ($sponsors as $sponsor) {
         $sponsorList .=
             '<li>
-                <img src="img/' . $sponsor['logo_url'] . '" alt="' . $sponsor['name'] . '">
+                <img src="' . $source . 'img/' . $sponsor['logo_url'] . '" alt="' . $sponsor['name'] . '">
             </li>';
     }
 

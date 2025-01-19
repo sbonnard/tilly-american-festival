@@ -322,11 +322,11 @@ function getMessageIfNoHistory(array $history, array $session): string
  *
  * @return string - The HTML string for the cowquitaf image container.
  */
-function displayCowquitaf(): string
+function displayCowquitaf($source = ''): string
 {
     return
         '<div class="cowquitaf__container">
-            <img class="cowquitaf" src="img/cowquitaf.webp" alt="La vache qui TAF">
+            <img class="cowquitaf" src="' . $source . 'img/cowquitaf.webp" alt="La vache qui TAF">
         </div>';
 }
 

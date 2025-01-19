@@ -15,6 +15,10 @@ require_once 'includes/classes/class.sponsor.php';
 require_once 'includes/classes/class.merchant.php';
 
 generateToken();
+
+if (isset($_SESSION['form'])) {
+    unset($_SESSION['form']);
+}
 ?>
 
 <!DOCTYPE html>
