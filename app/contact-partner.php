@@ -13,6 +13,7 @@ require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
 require_once 'includes/classes/class.merchant.php';
 
+$token = generateToken();
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +33,8 @@ require_once 'includes/classes/class.merchant.php';
         <div class="container">
             <h1 class="ttl" id="partner-ttl">Nous contacter</h1>
             <p class="txt txt--center">Vous souhaitez nous rejoindre en tant que partenaire ou en tant que commerçant ? Prenez contact !</p>
+            <?= getErrorMessage($errors); ?>
+            <?= getSuccessMessage($messages); ?>
 
             <form class="form" action="actions.php" method="post">
                 <ul class="form__lst">
@@ -61,9 +64,9 @@ require_once 'includes/classes/class.merchant.php';
                         <textarea class="form__textarea" name="message" id="message" cols="30" rows="10" required></textarea>
                     </li>
                 </ul>
-
-<input class="button button--contact slide-right" type="button" value="Envoyer">
-
+                <input class="button button--contact slide-right" type="button" value="Envoyer">
+                <input type="hidden" name="token" value="<?= $token; ?>">
+                <input type="hidden" name="action" value="contact-partner">
             </form>
         </div>
 
@@ -82,5 +85,6 @@ require_once 'includes/classes/class.merchant.php';
 </script>
 <script type="module" src="js/burger.js"></script>
 <script type="module" src="js/dropdown.js"></script>
+<script type="module" src="js/notifs.js"></script>
 
 </html>

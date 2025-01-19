@@ -1,0 +1,14 @@
+@use '../var' as var;
+
+.notif {
+    font-size: 1.25rem;
+    font-weight: bold;
+    
+    &--error {
+        color: var.$red;
+    }
+
+    &--success {
+        color: var.$success;
+    }
+}
