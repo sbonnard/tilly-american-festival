@@ -47,8 +47,9 @@ if (isset($_SESSION['form'])) {
     <main class="main">
         <div class="container">
             <h1 class="ttl" id="partner-ttl">Nous contacter</h1>
-            <h2 class="subttl ttl--red">En tant que partenaire</h2>
-            <p class="txt txt--center">Vous souhaitez nous rejoindre en tant que partenaire ou en tant que commerçant ? Prenez contact !</p>
+            <h2 class="subttl ttl--red">en tant que particulier</h2>
+            <p class="txt txt--center">Vous souhaitez nous rejoindre en tant que partenaire ou en tant que commerçant ? C'est par ici !</p>
+            <a href="contact-partner.php" class="button button--partner">Vous souhaitez nous rejoindre ?</a>
             <?= getErrorMessage($errors); ?>
             <?= getSuccessMessage($messages); ?>
 
@@ -59,20 +60,15 @@ if (isset($_SESSION['form'])) {
                         <input class="form__input" type="text" name="fullname" id="fullname" required autofocus value="<?= $fullname; ?>">
                     </li>
                     <li class="form__item">
-                        <label class="form__label" for="enterprise">Votre entreprise</label>
-                        <input class="form__input" type="text" name="enterprise" id="enterprise" required value="<?= $enterprise; ?>">
-                    </li>
-                    <li class="form__item">
                         <label class="form__label" for="email">Votre email <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input class="form__input" type="email" name="email" id="email" required value="<?= $email; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="subject">Objet <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <select class="form__input" name="subject" id="subject" required>
+                        <select class="form__input" name="subject" id="subject">
                             <option value="">- Objet du contact -</option>
-                            <option value="partenaire" <?= checkSelectedOption($_SESSION, 'partenaire'); ?>>Devenir partenaire</option>
-                            <option value="marchand" <?= checkSelectedOption($_SESSION, 'marchand'); ?>>Exposer en tant que commerçant</option>
-                            <option value="renseignement" <?= checkSelectedOption($_SESSION, 'renseignement'); ?>>Me renseigner</option>
+                            <option value="renseignement-fest" <?= checkSelectedOption($_SESSION, 'renseignement-fest'); ?>>Me renseigner sur le festival</option>
+                            <option value="renseignement-asso" <?= checkSelectedOption($_SESSION, 'renseignement-asso'); ?>>Me renseigner sur l'association</option>
                             <option value="autre" <?= checkSelectedOption($_SESSION, 'autre'); ?>>Autre</option>
                         </select>
                     </li>
@@ -83,7 +79,7 @@ if (isset($_SESSION['form'])) {
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Envoyer">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="contact-partner">
+                <input type="hidden" name="action" value="contact">
             </form>
         </div>
 

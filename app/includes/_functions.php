@@ -329,3 +329,21 @@ function displayCowquitaf(): string
             <img class="cowquitaf" src="img/cowquitaf.webp" alt="La vache qui TAF">
         </div>';
 }
+
+
+
+/**
+ * Checks if an option is selected.
+ *
+ * @param array $session - The superglobal session.
+ * @param string $option - The value of the option to check.
+ * @return string - The 'selected' string if the option is selected, an empty string otherwise.
+ */
+function checkSelectedOption(array $session, string $option): string
+{
+    if (isset($session['form']) && isset($session['form']['subject']) && $session['form']['subject'] === $option) {
+        return 'selected';
+    } else {
+        return '';
+    }
+}
