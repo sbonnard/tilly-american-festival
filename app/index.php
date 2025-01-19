@@ -8,6 +8,7 @@ require_once 'includes/_functions.php';
 require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
 require_once 'includes/classes/class.band.php';
+require_once 'includes/classes/class.sponsor.php';
 
 ?>
 
@@ -65,7 +66,7 @@ require_once 'includes/classes/class.band.php';
                 </div>
 
                 <!-- <img src="img/car.webp" alt="Voiture ancienne"> -->
-                 <div class="separator--car"></div>
+                <div class="separator--car"></div>
 
                 <!-- // Programmation du dimanche -->
                 <div class="section">
@@ -77,9 +78,19 @@ require_once 'includes/classes/class.band.php';
                 </div>
 
             </section>
+
         </div>
 
+        <div class="cowquitaf__container">
+            <img class="cowquitaf" src="img/cowquitaf.webp" alt="La vache qui TAF">
+        </div>
     </main>
+
+    <footer class="footer">
+        <?= listSponsorsHTML($activeSponsors); ?>
+        <p class="footer__credit">Site réalisé par <br><a class="footer__dev-link" href="https://sebastien-bonnard-hero.dontrollsingle.fr/" target="_blank">Sébastien Bonnard | Développeur</a></p>
+        <p>©Tilly American Festival 2025</p>
+    </footer>
 </body>
 
 <script>

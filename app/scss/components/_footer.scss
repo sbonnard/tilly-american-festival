@@ -1,0 +1,24 @@
+@use '../var' as var;
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+    background-color: var.$coal;
+    padding: 3rem;
+
+    &__credit {
+        text-align: center;
+    }
+
+    &__dev-link {
+        color: var.$white;
+
+        &:hover {
+            color: var.$red;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+@use '../var' as var;
+
+.sponsor {
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        border-bottom: 1.5px solid var.$white;
+        padding: 0 0 2rem 0;
+    }
+}
