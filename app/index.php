@@ -8,6 +8,7 @@ require_once 'includes/_functions.php';
 require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
 require_once 'includes/templates/_header.php';
+require_once 'includes/templates/_footer.php';
 require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
 
@@ -74,9 +75,7 @@ require_once 'includes/classes/class.sponsor.php';
     </main>
 
     <footer class="footer">
-        <?= listSponsorsHTML($activeSponsors); ?>
-        <p class="footer__credit">Site réalisé par <br><a class="footer__dev-link" href="https://sebastien-bonnard-hero.dontrollsingle.fr/" target="_blank">Sébastien Bonnard | Développeur</a></p>
-        <p>©Tilly American Festival 2025</p>
+        <?= fetchFooter($activeSponsors); ?>
     </footer>
 </body>
 
