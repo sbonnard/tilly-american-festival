@@ -10,6 +10,7 @@ require_once 'includes/templates/_head.php';
 require_once 'includes/templates/_header.php';
 require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
+require_once 'includes/classes/class.merchant.php';
 
 ?>
 
@@ -34,17 +35,30 @@ require_once 'includes/classes/class.sponsor.php';
                 <a href="contact-partner.php" class="button button--partner">Vous souhaitez nous rejoindre ?</a>
             </section>
 
-            <section class="section" aria-labelledby="sponsor-ttl">
-                <button id="sponsor-dropdown" class="dropdown-banner" aria-label="Afficher ou masquer la liste des sponsors" aria-expanded="false">
-                    <h2 class="ttl ttl--red">Nos Sponsors</h2>
-                    <img src="img/arrow-down.svg" alt="Flèche descendante">
-                </button>
+            <div class="dropdown__container">
+                <section class="section" aria-labelledby="sponsor-ttl">
+                    <button id="sponsor-dropdown" class="dropdown-banner" aria-label="Afficher ou masquer la liste des sponsors" aria-expanded="false">
+                        <h2 class="ttl ttl--red">Nos Sponsors</h2>
+                        <img src="img/arrow-down.svg" alt="Flèche descendante">
+                    </button>
 
-                <div class="sponsor__container hidden" id="sponsor-dropdown-content">
-                    <?= listSponsorsHTML($activeSponsors); ?>
-                </div>
+                    <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                        <?= listSponsorsHTML($activeSponsors); ?>
+                    </div>
+                </section>
 
-            </section>
+                <section class="section" aria-labelledby="merchant-ttl">
+                    <button id="merchant-dropdown" class="dropdown-banner" aria-label="Afficher ou masquer la liste des commerçants" aria-expanded="false">
+                        <h2 class="ttl ttl--red">Les commerçants</h2>
+                        <img src="img/arrow-down.svg" alt="Flèche descendante">
+                    </button>
+
+                    <div class="sponsor__container hidden" id="merchant-dropdown-content">
+                        <?= listMerchantsHTML($activeMerchants); ?>
+                    </div>
+                </section>
+            </div>
+
         </div>
 
         <?= displayCowquitaf(); ?>

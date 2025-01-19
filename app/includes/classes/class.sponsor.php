@@ -35,6 +35,10 @@ function listSponsorsHTML(array $sponsors)
 {
     $sponsorList = '<ul class="sponsor__list">';
 
+    if (empty($sponsors)) {
+        $sponsorList = '<li class="sponsor__empty">Aucun commerçant annoncé. On vous en dit plus bientôt !</li>';
+    }
+
     foreach ($sponsors as $sponsor) {
         $sponsorList .=
             '<li class="sponsor__item">
