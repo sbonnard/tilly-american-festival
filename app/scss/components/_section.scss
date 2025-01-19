@@ -5,4 +5,9 @@
     justify-content: center;
     width: 100%;
     gap: 2rem;
+
+    &--left {
+        align-items: flex-start;
+        text-align: left;
+    }
 }

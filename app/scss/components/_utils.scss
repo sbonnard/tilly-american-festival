@@ -1,3 +1,5 @@
+@use '../var' as var;
+
 .separator--car {
     width: 100vw;
     height: 13.125rem;
@@ -20,5 +22,32 @@ p {
 
     &--center {
         text-align: center;
+    }
+}
+
+
+.web {
+    &__lnk {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var.$white;
+        padding-bottom: 2.5rem;
+
+        &:hover {
+            color: var.$red;
+        }
+    }
+
+    &__logo {
+        width: 1.5rem;
+    }
+}
+
+.tourism__img {
+    width: 20.5rem;
+
+    @media screen and (min-width: 768px) {
+        width: 31.25rem;
     }
 }
