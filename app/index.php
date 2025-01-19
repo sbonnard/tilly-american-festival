@@ -26,13 +26,28 @@ require_once 'includes/classes/class.sponsor.php';
         </a>
         <div class="hamburger">
             <a href="#menu" id="hamburger-menu-icon" aria-label="Ouvrir le hamburger">
-                <img src="img/burger.svg" alt="Menu Hamburger">
+                <img id="burgerSvg" src="img/burger.svg" alt="Menu Hamburger">
             </a>
         </div>
         <nav class="nav hamburger__menu" id="menu" aria-label="Navigation principale du site">
             <ul class="nav__lst" id="nav-list">
                 <li class="nav__itm nav__lnk--current">
-                    <a href=""></a>
+                    <a href="index.php">Accueil</a>
+                </li>
+                <li class="nav__itm nav__lnk--current">
+                    <a href="wheretaf.php">Où sommes-nous ?</a>
+                </li>
+                <li class="nav__itm nav__lnk--current">
+                    <a href="partners.php">Nos partenaires</a>
+                </li>
+                <li class="nav__itm nav__lnk--current">
+                    <a href="gallery.php">Galerie</a>
+                </li>
+                <li class="nav__itm nav__lnk--current">
+                    <a href="association.php">L'association</a>
+                </li>
+                <li class="nav__itm nav__lnk--current">
+                    <a href="contact.php">Nous contacter</a>
                 </li>
             </ul>
         </nav>
@@ -96,5 +111,6 @@ require_once 'includes/classes/class.sponsor.php';
 <script>
     AOS.init();
 </script>
+<script type="module" src="js/burger.js"></script>
 
 </html>
