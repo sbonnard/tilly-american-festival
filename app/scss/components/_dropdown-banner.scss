@@ -1,0 +1,12 @@
+@use '../var' as var;
+
+.dropdown-banner {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    padding: 1rem;
+    background-color: var.$coal;
+    border-top: 0.25px solid var.$white;
+    border-bottom: 0.25px solid var.$white;
+}

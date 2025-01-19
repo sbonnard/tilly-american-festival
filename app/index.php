@@ -14,16 +14,18 @@ require_once 'includes/classes/class.sponsor.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <?= fetchHead(); ?>
 </head>
 
 <body>
+
     <header class="header">
-<?= fetchHeader('nav__lnk--current'); ?>
+        <?= fetchHeader('nav__lnk--current'); ?>
     </header>
+
     <main>
         <div class="herobanner" data-aos="zoom-in">
             <div class="herobanner__container">
@@ -68,9 +70,7 @@ require_once 'includes/classes/class.sponsor.php';
 
         </div>
 
-        <div class="cowquitaf__container">
-            <img class="cowquitaf" src="img/cowquitaf.webp" alt="La vache qui TAF">
-        </div>
+        <?= displayCowquitaf(); ?>
     </main>
 
     <footer class="footer">

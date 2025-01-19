@@ -11,6 +11,7 @@
 @use 'components/header';
 @use 'components/nav';
 @use 'components/herobanner';
+@use 'components/main';
 @use 'components/container';
 @use 'components/ttl';
 @use 'components/section';
@@ -20,4 +21,6 @@
 @use 'components/utils';
 @use 'components/cowquitaf';
 @use 'components/sponsor';
+@use 'components/button';
 @use 'components/footer';
+@use 'components/dropdown-banner';

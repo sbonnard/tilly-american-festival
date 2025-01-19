@@ -315,3 +315,17 @@ function getMessageIfNoHistory(array $history, array $session): string
                 </section>
             </div>';
 }
+
+
+/**
+ * Generates HTML for displaying the cowquitaf image.
+ *
+ * @return string - The HTML string for the cowquitaf image container.
+ */
+function displayCowquitaf(): string
+{
+    return
+        '<div class="cowquitaf__container">
+            <img class="cowquitaf" src="img/cowquitaf.webp" alt="La vache qui TAF">
+        </div>';
+}
