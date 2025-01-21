@@ -11,7 +11,7 @@
  * @param string $contact - The class name for the contact link.
  * @return string - The HTML content for the header.
  */
-function fetchHeader(string $home = '', string $where = '', string $partners = '', string $gallery = '', string $association = '', string $contact = '', string $source = ''): string
+function fetchHeader(string $home = '', string $where = '', string $partners = '', string $gallery = '', string $association = '', string $contact = '', string $source = '', string $backstage = '', string $logout = ''): string
 {
     $header =
         '<a href="index.php">
@@ -42,8 +42,31 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
                 <li class="nav__itm">
                     <a class="nav__lnk ' . $contact . '" href="' . $source . 'contact.php">Nous contacter</a>
                 </li>
+                ' . showLinkIfConnected($backstage, $logout, $source) . '
             </ul>
         </nav>';
 
     return $header;
+}
+
+
+/**
+ * Generates two links in the navigation bar if the user is an admin.
+ *
+ * The two links are "Backstage" and "Déconnexion".
+ *
+ * @param string $backstage - A class name to apply to the "Backstage" link.
+ * @param string $logout - A class name to apply to the "Déconnexion" link.
+ * @param string $source - The source of the images (either "" for local development or "/tilly-american-festival/" for production).
+ *
+ * @return string - The HTML code for the two links.
+ */
+function showLinkIfConnected(string $backstage, string $logout, string $source): string
+{
+    if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESSION['admin']) && $_SESSION['admin'] === 1) {
+        return '<li class="nav__itm"><a class="nav__lnk ' . $backstage . '" href="' . $source . 'backstage.php">Backstage</a></li>' .
+            '<li class="nav__itm"><a class="nav__lnk ' . $logout . '" href="' . $source . 'logout.php">Déconnexion</a></li>';
+    } else {
+        return '';
+    }
 }

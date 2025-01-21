@@ -40,11 +40,11 @@ if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESS
             <form class="form" action="login.php" method="post">
                 <ul class="form__lst">
                     <li class="form__item">
-                        <label class="form__label" for="username">Nom d'utilisateur <span class="form_asterisk" aria-hidden="true">*</span></label>
+                        <label class="form__label" for="username">Nom d'utilisateur <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input class="form__input" type="text" name="username" id="username" required autofocus>
                     </li>
                     <li class="form__item">
-                        <label class="form__label" for="password">Mot de passe <span class="form_asterisk" aria-hidden="true">*</span></label>
+                        <label class="form__label" for="password">Mot de passe <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input class="form__input" type="password" name="password" id="password" required placeholder="⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿">
                     </li>
                 </ul>

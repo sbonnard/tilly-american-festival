@@ -2,7 +2,8 @@
 
 $messages = [
     'message_ok' => 'Message envoyé ! Je vous recontacte dès que possible.',
-    'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.'
+    'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.',
+    'event_created' => 'Votre evenement a bien ete cree !'
 ];
 
 $errors = [
@@ -16,7 +17,12 @@ $errors = [
     'message_content_ko' => 'Merci de saisir un message.',
     'message_ko' => 'Échec lors de l\'envoi du message',
     'message_partner_ko' => 'Échec lors de l\'envoi du message',
-    'login_fail' => 'Identifiant ou mot de passe incorrect.'
+    'login_fail' => 'Identifiant ou mot de passe incorrect.',
+    'eventName_ko' => 'Le nom de l\'evenement saisi n\'est pas valide.',
+    'year_ko' => 'L\'année saisi n\'est pas valide.',
+    'is_taf_ko' => 'Je n\'ai pas  u déterminer si l\'évènement était ou non un TAF.',
+    'attachment_ko' => 'Le fichier saisi n\'est pas valide.',
+    'event_not_created' => 'L\'evenement n\'a pas pu etre créé.'
 ];
 
 
