@@ -48,6 +48,18 @@ if (isset($_SESSION['form'])) {
                 <img src="img/horns.webp" alt="Cornes de boeuf">
                 <h2 class="ttl" id="program">La Programmation</h2>
 
+                <!-- // Programmation du vendredi -->
+                 <?php if (!empty($bandsFriday)) { ?>
+                <div class="section">
+                    <h3 class="ttl ttl--small">Le vendredi</h3>
+
+                    <div class="artist__section">
+                        <?= getBandAsHTML($dbCo, $bandsFriday); ?>
+                    </div>
+
+                </div>
+                <?php } ?>
+                
                 <!-- // Programmation du samedi -->
                 <div class="section">
                     <h3 class="ttl ttl--small">Le samedi</h3>

@@ -5,6 +5,9 @@ require_once 'classes/class.band.php';
 require_once 'classes/class.sponsor.php';
 require_once 'classes/class.merchant.php';
 
+// Les groupes du vendredi.
+$bandsFriday = getBandPerYearPerDay($dbCo, 6);
+
 // Les groupes du samedi.
 $bandsSaturday = getBandPerYearPerDay($dbCo, 7);
 
