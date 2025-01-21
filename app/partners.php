@@ -53,7 +53,7 @@ if (isset($_SESSION['form'])) {
 
                 <section class="section" aria-labelledby="merchant-ttl">
                     <button id="merchant-dropdown" class="dropdown-banner" aria-label="Afficher ou masquer la liste des commerçants" aria-expanded="false">
-                        <h2 class="ttl ttl--red">Les commerçants</h2>
+                        <h2 class="ttl ttl--red">Les exposants</h2>
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 

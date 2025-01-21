@@ -15,7 +15,8 @@ $errors = [
     'subject_ko' => 'Le sujet saisi n\'est pas valide.',
     'message_content_ko' => 'Merci de saisir un message.',
     'message_ko' => 'Échec lors de l\'envoi du message',
-    'message_partner_ko' => 'Échec lors de l\'envoi du message'
+    'message_partner_ko' => 'Échec lors de l\'envoi du message',
+    'login_fail' => 'Identifiant ou mot de passe incorrect.'
 ];
 
 

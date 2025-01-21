@@ -87,3 +87,40 @@ function fetchBandLinks(PDO $dbCo, array $band): array
 
     return $queryBandLinks->fetchAll(PDO::FETCH_ASSOC);
 }
+
+
+/**
+ * Fetch all bands from database.
+ *
+ * @param PDO $dbCo - Connection to database.
+ *
+ * @return array - An array containing all bands.
+ */
+function fetchAllBands(PDO $dbCo): array
+{
+    $queryBand = $dbCo->prepare(
+        'SELECT *
+        FROM band
+        ORDER BY name ASC;'
+    );
+
+    $queryBand->execute();
+
+    return $queryBand->fetchAll(PDO::FETCH_ASSOC);
+}
+
+/**
+ * Generates an HTML list of bands from an array of bands.
+ *
+ * @param array $allbands - The array containing all bands.
+ * @return string - The generated HTML list.
+ */
+function getAllBandsAsList (array $allbands):string {
+    $listBands = '';
+
+    foreach ($allbands as $band) {
+        $listBands .= '<li class="band__itm ttl" data-id-band="' . $band['id_band'] . '">' . $band['name'] . '</li>';
+    }
+
+    return $listBands;
+}

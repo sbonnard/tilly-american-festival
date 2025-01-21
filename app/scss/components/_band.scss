@@ -1,0 +1,11 @@
+.band {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        // border-bottom: 1.5px solid var.$white;
+        padding: 0 0 2rem 0;
+    }
+}
