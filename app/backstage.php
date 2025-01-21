@@ -19,9 +19,7 @@ require_once 'includes/classes/class.sponsor.php';
 
 generateToken();
 
-if (!isset($_SESSION['username']) || !isset($_SESSION['id_roady']) || !isset($_SESSION['admin']) || $_SESSION['admin'] !== 1) {
-    redirectTo('errors/403.php');
-}
+checkConnection($_SESSION);
 
 $allBands = fetchAllBands($dbCo);
 $allEvents = fetchAllEvents($dbCo);

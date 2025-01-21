@@ -12,6 +12,16 @@ require_once 'includes/templates/_header.php';
 require_once 'includes/templates/_footer.php';
 
 generateToken();
+
+checkConnection($_SESSION);
+
+if (isset($_SESSION['form'])) {
+    $_SESSION['form']['eventName'] = $name;
+    $_SESSION['form']['year'] = $year;
+} else {
+    $year = '';
+    $name = '';
+}
 ?>
 
 <!DOCTYPE html>
@@ -37,11 +47,11 @@ generateToken();
                 <ul class="form__lst">
                     <li class="form__item">
                         <label class="form__label" for="eventName">Nom de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="eventName" id="eventName" required autofocus placeholder="Nom de l'évènement">
+                        <input class="form__input" type="text" name="eventName" id="eventName" required autofocus placeholder="Nom de l'évènement" value="<?= $name; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="year">Année de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="year" name="year" id="year" required placeholder="2022">
+                        <input class="form__input" type="text" name="year" id="year" required placeholder="2022" value="<?= $year; ?>">
                     </li>
                     <li class="form__item">
                         <label for="is_taf" class="form__label">L'evènement est-il un TAF ?</label>

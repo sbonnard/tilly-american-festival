@@ -81,10 +81,8 @@ function preventFromCSRFAPI(array $inputData): void
  */
 function checkConnection(array $session)
 {
-    if (!isset($session['username'])) {
-        redirectTo('index');
-        addError('please_connect');
-        exit();
+    if (!isset($session['username']) || !isset($session['id_roady']) || !isset($session['admin']) || $session['admin'] !== 1) {
+        redirectTo('errors/403.php');
     }
 }
 
