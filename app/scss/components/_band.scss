@@ -1,11 +1,41 @@
+@use '../var' as var;
+
 .band {
     &__list {
         display: flex;
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        justify-content: flex-start;
+        align-items: flex-start;
         gap: 1.5rem;
         // border-bottom: 1.5px solid var.$white;
         padding: 0 0 2rem 0;
+    }
+
+    &__itm {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        border-bottom: 0.25px solid var.$white;
+
+        &-link {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            color: var.$white;
+            font-size: 1.125rem;
+
+            &:hover {
+                color: var.$red;
+            }
+        }
+
+        &-sep {
+            font-size: 1.125rem;
+            color: var.$red;
+        }
     }
 }

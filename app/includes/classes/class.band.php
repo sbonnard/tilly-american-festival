@@ -144,8 +144,59 @@ function getAllBandsAsList(array $allbands): string
     $listBands = '';
 
     foreach ($allbands as $band) {
-        $listBands .= '<li class="band__itm ttl" data-id-band="' . $band['id_band'] . '">' . $band['name'] . '</li>';
+        $listBands .= '<li class="band__itm ttl" data-id-band="' . $band['id_band'] . '">' . $band['name'] . ' <span class="band__itm-sep">-</span> <span><a class="band__itm-link" href="program.php?band=' . $band['id_band'] . '">Programmer</a></span></li>';
     }
 
     return $listBands;
+}
+
+
+/**
+ * Fetch all events for a band from database.
+ *
+ * @param PDO $dbCo - Connection to database.
+ *
+ * @return array - An array containing all events for a band.
+ */
+function getAllEventsForABand(PDO $dbCo): array
+{
+    $queryBand = $dbCo->prepare(
+        'SELECT event_name
+        FROM band_event
+            JOIN event USING (id_event)
+        WHERE id_band = :id_band
+        ORDER BY id_event DESC;'
+    );
+
+    $bindValues = [
+        'id_band' => $_GET['band']
+    ];
+
+    $queryBand->execute($bindValues);
+
+    return $queryBand->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+/**
+ * Fetches information for a specific band from the database.
+ *
+ * @param PDO $dbCo - Connection to the database.
+ * @return array - An associative array containing band information.
+ */
+
+function getBandInfos(PDO $dbCo) {
+    $queryBand = $dbCo->prepare(
+        'SELECT *
+        FROM band
+        WHERE id_band = :id_band;'
+    );
+
+    $bindValues = [
+        'id_band' => $_GET['band']
+    ];
+
+    $queryBand->execute($bindValues);
+
+    return $queryBand->fetch(PDO::FETCH_ASSOC);
 }
