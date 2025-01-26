@@ -49,7 +49,6 @@ $allEvents = fetchAllEvents($dbCo);
                 <a href="new-sponsor.php" class="button button--contact">Nouveau Sponsor</a>
                 <a href="new-merchant.php" class="button button--contact">Nouvel Exposant</a>
             </section>
-            <p>Assure-toi d'avoir créer un évènement avant d'ajouter un groupe !</p>
 
             <div class="dropdown__container">
                 <section class="section" aria-labelledby="event-ttl">

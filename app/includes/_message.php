@@ -3,7 +3,8 @@
 $messages = [
     'message_ok' => 'Message envoyé ! Je vous recontacte dès que possible.',
     'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.',
-    'event_created' => 'Votre evenement a bien ete cree !'
+    'event_created' => 'Votre evenement a bien ete cree !',
+    'band_created' => 'Votre groupe a bien ete créé !',
 ];
 
 $errors = [
@@ -22,7 +23,11 @@ $errors = [
     'year_ko' => 'L\'année saisi n\'est pas valide.',
     'is_taf_ko' => 'Je n\'ai pas  u déterminer si l\'évènement était ou non un TAF.',
     'attachment_ko' => 'Le fichier saisi n\'est pas valide.',
-    'event_not_created' => 'L\'evenement n\'a pas pu etre créé.'
+    'event_not_created' => 'L\'evenement n\'a pas pu etre créé.',
+    'band_name_ko' => 'Le nom du groupe saisi n\'est pas valide.',
+    'band_description_ko' => 'La description du groupe saisi n\'est pas valide.',
+    'band_links_error' => 'Un des liens saisi n\'est pas valide.',
+    'band_not_created' => 'Le groupe n\'a pas pu etre créé.'
 ];
 
 

@@ -9,10 +9,11 @@
 function getBandPerYearPerDay(PDO $dbCo, INT $theDay): array
 {
     $queryBandPerYear = $dbCo->prepare(
-        'SELECT id_band, band.name, date, hour, img_url, description, id_event, DAYOFWEEK(date) AS day_of_week
+        'SELECT band.id_band, band.name, date, hour, img_url, description, event.id_event, DAYOFWEEK(date) AS day_of_week
         FROM band
             JOIN event USING (id_event)
-        WHERE id_event = (SELECT MAX(id_event) FROM event) 
+            JOIN band_event USING (id_event)
+        WHERE event.id_event = (SELECT MAX(id_event) FROM event) 
           AND is_taf = :is_taf
           AND DAYOFWEEK(date) = :dayOfWeek
           ORDER BY hour;'

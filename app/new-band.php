@@ -17,6 +17,41 @@ require_once 'includes/classes/class.event.php';
 generateToken();
 
 checkConnection($_SESSION);
+
+$name = '';
+$description = '';
+$youtubeLnk = '';
+$facebookLnk = '';
+$instaLnk = '';
+$webLnk = '';
+
+if (isset($_SESSION['form'])) {
+
+    if (isset($_SESSION['form']['bandName'])) {
+        $_SESSION['form']['bandName'] = $name;
+    }
+
+    if (isset($_SESSION['form']['description'])) {
+        $_SESSION['form']['description'] = $description;
+    }
+
+    if (isset($_SESSION['form']['youtubeLnk'])) {
+        $_SESSION['form']['youtubeLnk'] = $youtubeLnk;
+    }
+
+    if (isset($_SESSION['form']['facebookLnk'])) {
+        $_SESSION['form']['facebookLnk'] = $facebookLnk;
+    }
+
+    if (isset($_SESSION['form']['instaLnk'])) {
+        $_SESSION['form']['instaLnk'] = $instaLnk;
+    }
+
+    if (isset($_SESSION['form']['webLnk'])) {
+        $_SESSION['form']['webLnk'] = $webLnk;
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -42,57 +77,35 @@ checkConnection($_SESSION);
                 <ul class="form__lst">
                     <li class="form__item">
                         <label class="form__label" for="bandName">Nom du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="bandName" id="bandName" required autofocus placeholder="Nom du groupe">
+                        <input class="form__input" type="text" name="bandName" id="bandName" required autofocus placeholder="Nom du groupe" value="<?= $name; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="description">Description brêve du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" required></textarea>
+                        <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" required><?= $description; ?></textarea>
                     </li>
-                    <li class="form__item">
-                        <label class="form__label" for="date">Date de passage <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="date" name="date" id="date" required>
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="time">Heure de passage <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="time" name="time" id="time" required>
-                    </li>
-                    <li class="form__item">
-                        <label for="event" class="form__label">Participation à quel évènement ? <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <select class="form__input" name="event" id="event">
-                            <option value="">- Sélectionne un évènement -</option>
-                            <?php
 
-                            // Créer les options de choix de l'evenement
-                            $events = fetchAllEvents($dbCo);
-                            foreach ($events as $event) {
-                                echo '<option value="' . $event['id'] . '">' . $event['name'] . '</option>';
-                            }
-
-                            ?>
-                        </select>
-                    </li>
                     <li class="form__item">
                         <label class="form__label" for="youtubeLnk">Lien Youtube :</label>
-                        <input class="form__input" type="text" name="youtubeLnk" id="youtubeLnk">
+                        <input class="form__input" type="text" name="youtubeLnk" id="youtubeLnk" value="<?= $youtubeLnk; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="facebookLnk">Lien Facebook :</label>
-                        <input class="form__input" type="text" name="facebookLnk" id="facebookLnk">
+                        <input class="form__input" type="text" name="facebookLnk" id="facebookLnk" value="<?= $facebookLnk; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="instaLnk">Lien Instagram :</label>
-                        <input class="form__input" type="text" name="instaLnk" id="instaLnk">
+                        <input class="form__input" type="text" name="instaLnk" id="instaLnk" value="<?= $instaLnk; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="webLnk">Lien Site Officiel :</label>
-                        <input class="form__input" type="text" name="webLnk" id="webLnk">
+                        <input class="form__input" type="text" name="webLnk" id="webLnk" value="<?= $webLnk; ?>">
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
                     </li>
                 </ul>
-                <input class="button button--contact slide-right" type="submit" value="Connexion">
+                <input class="button button--contact slide-right" type="submit" value="Valider">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                 <input type="hidden" name="action" value="new-band">
             </form>
