@@ -23,6 +23,22 @@ function fetchActiveSponsors(PDO $dbCo): array
     return $query->fetchAll(PDO::FETCH_ASSOC);
 }
 
+/**
+ * Fetch all active sponsors
+ *
+ * @param PDO $dbCo Database connection
+ * @return array An array containing all active sponsors
+ */
+function fetchAllSponsors(PDO $dbCo): array
+{
+    $query = $dbCo->query(
+        'SELECT *
+        FROM sponsor;'
+    );
+
+    return $query->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
 
 /**

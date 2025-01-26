@@ -40,8 +40,9 @@ if (isset($_SESSION['form'])) {
         <div class="container">
             <section class="section" aria-labelledby="intro">
                 <h1 class="ttl" id="intro">Le festival</h1>
+                <h2 class="ttl ttl--big">Les <span class="ttl--red">12</span>, <span class="ttl--red">13</span> & <span class="ttl--red">14</span> Septembre <span class="ttl--red">2025</span></h2>
                 <img class="logo" src="img/logo.svg" alt="Logo du Tilly American Festival">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in urna luctus tortor porta tincidunt. Curabitur mollis, ante et pretium ultrices, odio magna tempor lacus, nec finibus felis dui eget dolor. Vivamus ac est faucibus, tincidunt risus vel, varius libero. Quisque placerat dui et pharetra pulvinar. Aenean euismod, dolor eu vestibulum mattis, leo elit elementum enim, ut lacinia felis lacus nec ligula. Etiam eu placerat orci.</p>
+                <p>Venez vivre un voyage dans le temps au cœur de la Normandie lors de notre festival unique célébrant la culture américaine des années 50 à 70 ! Plongez dans une ambiance vibrante où rockabilly, bluegrass et rock'n'roll se mêlent pour faire revivre les sons légendaires de cette époque dorée. Entouré de voitures anciennes étincelantes, de vêtements vintage et de déco rétro, vous serez transporté dans un univers où chaque détail rend hommage à l’esprit rebelle et dynamique des années passées. Un week-end à ne pas manquer pour les amateurs de musique, de culture et de nostalgie américaine !</p>
             </section>
 
             <section class="section" aria-labelledby="program">

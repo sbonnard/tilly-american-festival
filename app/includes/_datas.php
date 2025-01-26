@@ -17,5 +17,8 @@ $bandsSunday = getBandPerYearPerDay($dbCo, 1);
 // Sponsors actifs
 $activeSponsors = fetchActiveSponsors($dbCo);
 
+// Tous les sponsors
+$allSponsors = fetchAllSponsors($dbCo);
+
 // Commerçants actifs
 $activeMerchants = fetchActiveMerchants($dbCo);
