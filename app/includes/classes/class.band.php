@@ -1,31 +1,54 @@
 <?php
 
 /**
- * Get bands from last taf event only on saturday. When a new event is created, bands will be updated.
+ * Get bands from the most recent TAF event only on a specific day.
  *
- * @param PDO $dbCo - Connection to database.
- * @return array - An array containing all bands from most recent event that is taf.
+ * @param PDO $dbCo - Connection to the database.
+ * @param int $theDay - The day of the week (1 = Sunday, ..., 7 = Saturday).
+ * @return array - An array containing all bands from the most recent TAF event on the specified day.
  */
-function getBandPerYearPerDay(PDO $dbCo, INT $theDay): array
+function getBandPerYearPerDay(PDO $dbCo, int $theDay): array
 {
-    $queryBandPerYear = $dbCo->prepare(
-        'SELECT band.id_band, band.name, date, hour, img_url, description, event.id_event, DAYOFWEEK(date) AS day_of_week
-        FROM band
-            JOIN event USING (id_event)
-            JOIN band_event USING (id_event)
-        WHERE event.id_event = (SELECT MAX(id_event) FROM event) 
-          AND is_taf = :is_taf
-          AND DAYOFWEEK(date) = :dayOfWeek
-          ORDER BY hour;'
+    // Retrieve the ID of the most recent TAF event
+    $lastTAFQuery = $dbCo->query(
+        'SELECT MAX(id_event) AS lastTAF FROM event WHERE is_taf = 1;'
     );
 
-    $bindValues = [
+    $lastTAF = $lastTAFQuery->fetch(PDO::FETCH_ASSOC)['lastTAF'];
+
+    // If no TAF event is found, return an empty array
+    if (!$lastTAF) {
+        return [];
+    }
+
+    // Prepare the query to get bands for the specified day
+    $queryBandPerYear = $dbCo->prepare(
+        'SELECT 
+            band.id_band, 
+            band.name, 
+            band_event.date, 
+            band_event.hour, 
+            band.img_url, 
+            band.description, 
+            band_event.id_event, 
+            DAYOFWEEK(band_event.date) AS day_of_week
+        FROM band_event
+        JOIN event ON band_event.id_event = event.id_event
+        JOIN band ON band_event.id_band = band.id_band
+        WHERE band_event.id_event = :lastTAF
+          AND event.is_taf = :is_taf
+          AND DAYOFWEEK(band_event.date) = :dayOfWeek
+        ORDER BY band_event.hour;'
+    );
+
+    // Bind values
+    $queryBandPerYear->execute([
+        'lastTAF' => $lastTAF,
         'is_taf' => 1,
-        'dayOfWeek' => $theDay
-    ];
+        'dayOfWeek' => $theDay,
+    ]);
 
-    $queryBandPerYear->execute($bindValues);
-
+    // Return the results
     return $queryBandPerYear->fetchAll(PDO::FETCH_ASSOC);
 }
 
@@ -116,7 +139,8 @@ function fetchAllBands(PDO $dbCo): array
  * @param array $allbands - The array containing all bands.
  * @return string - The generated HTML list.
  */
-function getAllBandsAsList (array $allbands):string {
+function getAllBandsAsList(array $allbands): string
+{
     $listBands = '';
 
     foreach ($allbands as $band) {
