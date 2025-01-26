@@ -19,6 +19,12 @@
         gap: 1rem;
         border-bottom: 0.25px solid var.$white;
 
+        @media screen and (max-width: 768px) {
+            padding: 1rem;
+            max-width: 90%;
+            margin: auto;
+        }
+
         &-link {
             display: flex;
             flex-direction: row;

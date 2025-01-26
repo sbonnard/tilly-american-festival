@@ -59,7 +59,7 @@ $band = getBandInfos($dbCo);
                             // Créer les options de choix de l'evenement
                             $events = fetchAllFutureEvents($dbCo);
                             foreach ($events as $event) {
-                                echo '<option value="' . $event['id'] . '">' . $event['name'] . '</option>';
+                                echo '<option value="' . $event['id_event'] . '">' . $event['name'] . '</option>';
                             }
 
                             ?>

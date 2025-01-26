@@ -255,8 +255,14 @@ if (isset($_POST['action'])) {
         }
     } else if ($_REQUEST['action'] === 'program') {
 
-        if (!isset($_POST['event'])) {
+        if (!isset($_POST['event']) || !intval($_POST['event'])) {
             addError('event_not_selected');
+            redirectTo();
+            exit;
+        }
+
+        if (!isset($_POST['band']) || !intval($_POST['band'])) {
+            addError('band_not_selected');
             redirectTo();
             exit;
         }
@@ -286,10 +292,12 @@ if (isset($_POST['action'])) {
 
         if ($query->execute($bindValues)) {
             addMessage('program_created');
-            redirectTo();
+            redirectTo('backstage.php');
+            exit;
         } else {
             addError('program_not_created');
             redirectTo();
+            exit;
         }
     }
 }

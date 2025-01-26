@@ -5,6 +5,7 @@ $messages = [
     'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.',
     'event_created' => 'Votre evenement a bien ete cree !',
     'band_created' => 'Votre groupe a bien ete créé !',
+    'program_created' => 'Votre programmation a bien ete créée !'
 ];
 
 $errors = [
@@ -27,7 +28,12 @@ $errors = [
     'band_name_ko' => 'Le nom du groupe saisi n\'est pas valide.',
     'band_description_ko' => 'La description du groupe saisi n\'est pas valide.',
     'band_links_error' => 'Un des liens saisi n\'est pas valide.',
-    'band_not_created' => 'Le groupe n\'a pas pu etre créé.'
+    'band_not_created' => 'Le groupe n\'a pas pu etre créé.',
+    'event_not_selected' => 'Merci de choisir un evenement.',
+    'band_not_selected' => 'Merci de choisir un groupe.',
+    'date_not_selected' => 'Merci de choisir une date.',
+    'time_not_selected' => 'Merci de choisir une heure.',
+    'program_not_created' => 'La programmation n\'a pas pu etre cree.'
 ];
 
 
