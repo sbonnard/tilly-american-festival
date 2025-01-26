@@ -299,6 +299,84 @@ if (isset($_POST['action'])) {
             redirectTo();
             exit;
         }
+    } else if ($_POST['action'] === 'new-sponsor') {
+        if (!isset($_POST['sponsorName']) || $_POST['sponsorName'] === '') {
+            addError('sponsorName_ko');
+            redirectTo();
+            exit;
+        }
+
+        // Gestion du fichier attaché
+        $attachmentFileName = 'default.webp'; // Valeur par défaut
+        if (isset($_FILES['attachment']) && !empty($_FILES['attachment']['name'])) {
+
+            $uploadDir = __DIR__ . '/img/'; // Dossier de destination
+
+            // Vérification que le dossier existe, sinon le créer
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0775, true);
+            }
+
+            // Récupérer les informations du fichier
+            $fileName = pathinfo($_FILES['attachment']['name'], PATHINFO_FILENAME);
+            $fileExtension = pathinfo($_FILES['attachment']['name'], PATHINFO_EXTENSION);
+
+            // time() pour assurer un nom de fichier unique.
+            $attachmentFileName = $fileName . '_' . time() . '.' . $fileExtension;
+            $uploadFile = $uploadDir . $attachmentFileName;
+
+            // Vérification de l'erreur de téléchargement
+            if ($_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
+                // Vérification des types de fichiers autorisés
+                $allowedTypes = [
+                    'image/png',
+                    'image/jpeg',
+                    'image/jpg',
+                    'image/webp'
+                ];
+                $fileType = mime_content_type($_FILES['attachment']['tmp_name']);
+
+                if (in_array($fileType, $allowedTypes)) {
+                    // Déplacer le fichier vers le dossier de destination
+                    if (move_uploaded_file($_FILES['attachment']['tmp_name'], $uploadFile)) {
+                        $attachmentFileName = htmlspecialchars($attachmentFileName); // Nom du fichier téléchargé
+                    } else {
+                        echo "Erreur lors du téléchargement de $attachmentFileName.<br>";
+                    }
+                } else {
+                    echo "Type de fichier non autorisé pour $attachmentFileName.<br>";
+                }
+            } else {
+                echo "Erreur de téléchargement pour le fichier $attachmentFileName.<br>";
+            }
+        }
+
+        if ($attachmentFileName === 'default.webp' || $attachmentFileName === '') {
+            addError('sponsorLogo_ko');
+            redirectTo();
+            exit;
+        }
+
+        $sponsorName = htmlspecialchars($_POST['sponsorName']);
+
+        $query = $dbCo->prepare(
+            'INSERT INTO sponsor (name, logo_url) VALUES (:name, :logo);'
+        );
+
+        $bindValues = [
+            'name' => $sponsorName,
+            'logo' => htmlspecialchars($attachmentFileName)
+        ];
+
+        if ($query->execute($bindValues)) {
+            addMessage('sponsor_created');
+            redirectTo('backstage.php');
+            exit;
+        } else {
+            addError('sponsor_not_created');
+            redirectTo();
+            exit;
+        }
     }
 }
 

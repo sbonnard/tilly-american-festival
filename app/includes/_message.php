@@ -5,7 +5,8 @@ $messages = [
     'message_partner_ok' => 'Message envoyé ! Nous vous recontacterons dans les plus brefs delais.',
     'event_created' => 'Votre evenement a bien ete cree !',
     'band_created' => 'Votre groupe a bien ete créé !',
-    'program_created' => 'Votre programmation a bien ete créée !'
+    'program_created' => 'Votre programmation a bien ete créée !',
+    'sponsor_created' => 'Votre sponsor a bien ete créé !'
 ];
 
 $errors = [
@@ -33,7 +34,10 @@ $errors = [
     'band_not_selected' => 'Merci de choisir un groupe.',
     'date_not_selected' => 'Merci de choisir une date.',
     'time_not_selected' => 'Merci de choisir une heure.',
-    'program_not_created' => 'La programmation n\'a pas pu etre cree.'
+    'program_not_created' => 'La programmation n\'a pas pu etre cree.',
+    'sponsorName_ko' => 'Le nom du sponsor saisi n\'est pas valide.',
+    'sponsorLogo_ko' => 'Le logo du sponsor saisi n\'est pas valide.',
+    'sponsor_not_created' => 'Le sponsor n\'a pas pu etre créé.'
 ];
 
 

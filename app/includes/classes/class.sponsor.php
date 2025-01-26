@@ -58,7 +58,7 @@ function listSponsorsHTML(array $sponsors, string $source = ''): string
     foreach ($sponsors as $sponsor) {
         $sponsorList .=
             '<li>
-                <img src="' . $source . 'img/' . $sponsor['logo_url'] . '" alt="' . $sponsor['name'] . '">
+                <img class="sponsor__logo" src="' . $source . 'img/' . $sponsor['logo_url'] . '" alt="' . $sponsor['name'] . '">
             </li>';
     }
 
