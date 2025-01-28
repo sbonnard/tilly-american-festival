@@ -102,5 +102,10 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
         });
     });
 </script>
+<script>
+    window.onload = function() {
+        window.scrollTo(0, 0); // Scroll vers le tout en haut de la page
+    }
+</script>
 
 </html>

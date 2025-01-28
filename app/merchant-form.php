@@ -80,5 +80,10 @@ if (isset($_SESSION['form'])) {
 </script>
 <script type="module" src="js/burger.js"></script>
 <script type="module" src="js/notifs.js"></script>
+<script>
+    window.onload = function() {
+        window.scrollTo(0, 0); // Scroll vers le tout en haut de la page
+    }
+</script>
 
 </html>
