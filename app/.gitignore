@@ -4,3 +4,4 @@ vendor
 assets
 .env
 taf_db.sql
+build
