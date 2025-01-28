@@ -54,7 +54,7 @@ if (isset($_SESSION['form'])) {
                 <div class="section">
                     <h3 class="ttl ttl--small">Le vendredi</h3>
 
-                    <div class="artist__section">
+                    <div class="section">
                         <?= getBandAsHTML($dbCo, $bandsFriday); ?>
                     </div>
 
@@ -65,7 +65,7 @@ if (isset($_SESSION['form'])) {
                 <div class="section">
                     <h3 class="ttl ttl--small">Le samedi</h3>
 
-                    <div class="artist__section">
+                    <div class="<?php if (empty($bandsSaturday)) { echo 'section'; } else { ?>artist__section <?php } ?>">
                         <?= getBandAsHTML($dbCo, $bandsSaturday); ?>
                     </div>
 
@@ -78,7 +78,7 @@ if (isset($_SESSION['form'])) {
                 <div class="section">
                     <h3 class="ttl ttl--small">Le dimanche</h3>
 
-                    <div class="artist__section">
+                    <div class="<?php if (empty($bandsSunday)) { echo 'section'; } else { ?>artist__section <?php } ?>">
                         <?= getBandAsHTML($dbCo, $bandsSunday); ?>
                     </div>
                 </div>

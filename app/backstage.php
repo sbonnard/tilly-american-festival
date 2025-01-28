@@ -44,10 +44,10 @@ $allEvents = fetchAllEvents($dbCo);
             <?= getSuccessMessage($messages); ?>
 
             <section class="section--buttons">
-                <a href="event.php" class="button button--contact">Nouvel Évènement</a>
-                <a href="band.php" class="button button--contact">Nouveau Groupe</a>
-                <a href="sponsor.php" class="button button--contact">Nouveau Sponsor</a>
-                <a href="merchant.php" class="button button--contact">Nouvel Exposant</a>
+                <a href="event-form.php" class="button button--contact">Nouvel Évènement</a>
+                <a href="band-form.php" class="button button--contact">Nouveau Groupe</a>
+                <a href="sponsor-form.php" class="button button--contact">Nouveau Sponsor</a>
+                <a href="merchant-form.php" class="button button--contact">Nouvel Exposant</a>
             </section>
 
             <div class="dropdown__container">

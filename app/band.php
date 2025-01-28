@@ -18,40 +18,13 @@ generateToken();
 
 checkConnection($_SESSION);
 
-$name = '';
-$description = '';
-$youtubeLnk = '';
-$facebookLnk = '';
-$instaLnk = '';
-$webLnk = '';
-
-if (isset($_SESSION['form'])) {
-
-    if (isset($_SESSION['form']['bandName'])) {
-        $_SESSION['form']['bandName'] = $name;
-    }
-
-    if (isset($_SESSION['form']['description'])) {
-        $_SESSION['form']['description'] = $description;
-    }
-
-    if (isset($_SESSION['form']['youtubeLnk'])) {
-        $_SESSION['form']['youtubeLnk'] = $youtubeLnk;
-    }
-
-    if (isset($_SESSION['form']['facebookLnk'])) {
-        $_SESSION['form']['facebookLnk'] = $facebookLnk;
-    }
-
-    if (isset($_SESSION['form']['instaLnk'])) {
-        $_SESSION['form']['instaLnk'] = $instaLnk;
-    }
-
-    if (isset($_SESSION['form']['webLnk'])) {
-        $_SESSION['form']['webLnk'] = $webLnk;
-    }
+// Programmation d'un groupe
+if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
+    $bandEvents = getBandEvents($dbCo, $_GET);
+    $myBand = getOneBand($dbCo, $_GET);
+} else {
+    redirectTo('errors/404.php');
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -69,50 +42,31 @@ if (isset($_SESSION['form'])) {
 
     <main class="main">
         <div class="container">
-            <h1 class="ttl" id="partner-ttl">Ajouter un groupe</h1>
-            <?= getErrorMessage($errors); ?>
-            <?= getSuccessMessage($messages); ?>
 
-            <form class="form" action="backstage-actions.php" method="post" enctype="multipart/form-data">
-                <ul class="form__lst">
-                    <li class="form__item">
-                        <label class="form__label" for="bandName">Nom du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="bandName" id="bandName" required autofocus placeholder="Nom du groupe" value="<?= $name; ?>">
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="description">Description brêve du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <textarea class="form__textarea" name="description" id="description" cols="30" rows="10" required><?= $description; ?></textarea>
-                    </li>
+            <a href="backstage.php" class="button button--backstage">Retour aux backstages</a>
 
-                    <li class="form__item">
-                        <label class="form__label" for="youtubeLnk">Lien Youtube :</label>
-                        <input class="form__input" type="text" name="youtubeLnk" id="youtubeLnk" value="<?= $youtubeLnk; ?>">
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="facebookLnk">Lien Facebook :</label>
-                        <input class="form__input" type="text" name="facebookLnk" id="facebookLnk" value="<?= $facebookLnk; ?>">
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="instaLnk">Lien Instagram :</label>
-                        <input class="form__input" type="text" name="instaLnk" id="instaLnk" value="<?= $instaLnk; ?>">
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="webLnk">Lien Site Officiel :</label>
-                        <input class="form__input" type="text" name="webLnk" id="webLnk" value="<?= $webLnk; ?>">
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
-                    </li>
-                </ul>
-                <input class="button button--contact slide-right" type="submit" value="Valider">
-                <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-band">
-            </form>
+            <div class="container--row">
+                <div class="section" aria-labelledby="band-ttl">
+                    <h3 class="ttl ttl--small" id="band-ttl">Fiche du groupe</h3>
+
+                    <div class="section">
+                        <?= getBandAsHTML($dbCo, getOneBand($dbCo, $_GET)); ?>
+                    </div>
+
+                </div>
+
+                <div class="section" aria-labelledby="program-ttl">
+                    <h3 class="ttl ttl--small" id="program-ttl">Programmation</h3>
+
+                    <div class="section">
+                        <?= getBandEventsAsHTML($bandEvents, $myBand[0]) ?>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 
-        </div>
 
         <?= displayCowquitaf(); ?>
 

@@ -22,4 +22,10 @@
             padding: 10rem 0;
         }
     }
+
+    &--row{
+        display: flex;
+        align-items: flex-start;
+        gap: 3rem;
+    }
 }
