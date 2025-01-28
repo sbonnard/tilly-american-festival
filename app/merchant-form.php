@@ -16,10 +16,10 @@ generateToken();
 checkConnection($_SESSION);
 
 if (isset($_SESSION['form'])) {
-    $_SESSION['form']['eventName'] = $name;
-    $_SESSION['form']['year'] = $year;
+    $_SESSION['form']['merchantName'] = $name;
+    $_SESSION['form']['description'] = $description;
 } else {
-    $year = '';
+    $description = '';
     $name = '';
 }
 ?>
@@ -37,29 +37,24 @@ if (isset($_SESSION['form'])) {
 
     <main class="main">
         <div class="container">
-            <h1 class="ttl" id="partner-ttl">Créer un événement</h1>
+            <a href="backstage.php" class="button button--backstage">Retour aux backstages</a>
+
+            <h1 class="ttl" id="partner-ttl">Nouvel Exposant</h1>
             <?= getErrorMessage($errors); ?>
             <?= getSuccessMessage($messages); ?>
 
             <form class="form" action="backstage-actions.php" method="post" enctype="multipart/form-data">
                 <ul class="form__lst">
                     <li class="form__item">
-                        <label class="form__label" for="eventName">Nom de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="eventName" id="eventName" required autofocus placeholder="Nom de l'évènement" value="<?= $name; ?>">
+                        <label class="form__label" for="merchantName">Nom de l'exposant <span class="form__asterisk" aria-hidden="true">*</span></label>
+                        <input class="form__input" type="text" name="merchantName" id="merchantName" required autofocus placeholder="Nom de l'exposant" value="<?= $name; ?>">
                     </li>
                     <li class="form__item">
-                        <label class="form__label" for="year">Année de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input class="form__input" type="text" name="year" id="year" required placeholder="2022" value="<?= $year; ?>">
+                        <label class="form__label" for="year">Description de l'exposant <span class="form__asterisk" aria-hidden="true">*</span></label>
+                        <textarea name="description" class="form__textarea" id="description" cols="30" rows="10" required><?= $description; ?></textarea>
                     </li>
                     <li class="form__item">
-                        <label for="is_taf" class="form__label">L'evènement est-il un TAF ?</label>
-                        <select class="form__input" name="is_taf" id="is_taf">
-                            <option value="0">Non</option>
-                            <option value="1">Oui</option>
-                        </select>
-                    </li>
-                    <li class="form__item">
-                        <label class="form__label" for="attachment">Bannière de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
+                        <label class="form__label" for="attachment">Photo de l'exposant <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
                     </li>
                 </ul>

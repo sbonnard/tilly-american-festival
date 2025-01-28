@@ -29,6 +29,9 @@ checkConnection($_SESSION);
 
     <main class="main">
         <div class="container">
+
+            <a href="backstage.php" class="button button--backstage">Retour aux backstages</a>
+
             <h1 class="ttl" id="partner-ttl">Ajouter un sponsor</h1>
             <?= getErrorMessage($errors); ?>
             <?= getSuccessMessage($messages); ?>
