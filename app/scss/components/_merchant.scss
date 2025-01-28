@@ -1,4 +1,31 @@
+@use '../var' as var;
+
 .merchant {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    padding: 1.5rem 0;
+    border-bottom: 0.25px solid var.$white;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    &__img {
+        width: 18rem;
+    }
+
+    &__name {
+        font-family: 'backcountry', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-size: 2rem;
+        min-height: 3rem;
+    }
+
     &__empty {
         font-size: 1.5rem;
         text-align: center;

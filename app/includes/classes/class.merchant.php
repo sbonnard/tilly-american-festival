@@ -39,9 +39,11 @@ function listMerchantsHTML(array $activeMerchants): string
     foreach ($activeMerchants as $merchant) {
         $htmlMerchants .= '
             <li class="merchant" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">
-                <h4 class="merchant__name">' . $merchant['name'] . '</h4>
                 <img class="merchant__img" src="img/' . $merchant['img_url'] . '" alt="Photo de ' . $merchant['name'] . '">
-                <p class="merchant__description">' . $merchant['description'] . '</p>
+                <div class="flex-column">
+                    <h4 class="merchant__name">' . $merchant['name'] . '</h4>
+                    <p class="merchant__description">' . $merchant['description'] . '</p>
+                </div>
             </li>';
     }
 

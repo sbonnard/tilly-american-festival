@@ -17,6 +17,11 @@ p {
     display: none;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .txt {
     font-size: 1.25rem;
 
