@@ -5,3 +5,4 @@ assets
 .env
 taf_db.sql
 build
+secretKey.php

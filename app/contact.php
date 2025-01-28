@@ -14,6 +14,8 @@ require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.sponsor.php';
 require_once 'includes/classes/class.merchant.php';
 
+require_once 'secretKey.php';
+
 generateToken();
 
 if (isset($_SESSION['form'])) {
@@ -32,7 +34,6 @@ if (isset($_SESSION['form'])) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $recaptchaToken = $_POST['recaptcha_token'];
-    $secretKey = '6LfkK8YqAAAAAPvPbPJk-EBYgrEKiOHC_CgkBkAB';
 
     // Envoyer une requête à l'API reCAPTCHA
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$recaptchaToken");
