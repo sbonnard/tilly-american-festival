@@ -65,7 +65,7 @@ if (isset($_SESSION['form'])) {
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-event">
+                <input type="hidden" name="action" value="new-merchant">
             </form>
 
         </div>

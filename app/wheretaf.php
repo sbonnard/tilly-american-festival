@@ -30,9 +30,7 @@ if (isset($_SESSION['form'])) {
 
 <body>
 
-    <header class="header">
-        <?= fetchHeader('', 'nav__lnk--current'); ?>
-    </header>
+    <?= fetchHeader('', 'nav__lnk--current'); ?>
 
     <main class="main">
         <div class="container">

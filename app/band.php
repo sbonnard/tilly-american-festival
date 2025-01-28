@@ -36,9 +36,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
 
 <body>
 
-    <header class="header">
-        <?= fetchHeader(); ?>
-    </header>
+    <?= fetchHeader('', '', '', '', '', '', '', 'nav__lnk--current'); ?>
 
     <main class="main">
         <div class="container">
@@ -88,7 +86,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
     const forms = document.querySelectorAll('.js-unprogramForm');
 
     forms.forEach(form => {
-        form.addEventListener('submit', function (event) {
+        form.addEventListener('submit', function(event) {
             event.preventDefault(); // Empêche l'envoi par défaut
 
             // Récupérer les données des attributs data-*
@@ -104,4 +102,5 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
         });
     });
 </script>
+
 </html>

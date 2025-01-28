@@ -27,9 +27,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESS
 
 <body>
 
-    <header class="header">
-        <?= fetchHeader(); ?>
-    </header>
+    <?= fetchHeader(); ?>
 
     <main class="main">
         <div class="container">

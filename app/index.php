@@ -26,9 +26,7 @@ if (isset($_SESSION['form'])) {
 
 <body>
 
-    <header class="header">
-        <?= fetchHeader('nav__lnk--current'); ?>
-    </header>
+    <?= fetchHeader('nav__lnk--current'); ?>
 
     <main>
         <div class="herobanner" data-aos="zoom-in">
@@ -50,22 +48,24 @@ if (isset($_SESSION['form'])) {
                 <h2 class="ttl" id="program">La Programmation</h2>
 
                 <!-- // Programmation du vendredi -->
-                 <?php if (!empty($bandsFriday)) { ?>
-                <div class="section">
-                    <h3 class="ttl ttl--small">Le vendredi</h3>
-
+                <?php if (!empty($bandsFriday)) { ?>
                     <div class="section">
-                        <?= getBandAsHTML($dbCo, $bandsFriday); ?>
-                    </div>
+                        <h3 class="ttl ttl--small">Le vendredi</h3>
 
-                </div>
+                        <div class="section">
+                            <?= getBandAsHTML($dbCo, $bandsFriday); ?>
+                        </div>
+
+                    </div>
                 <?php } ?>
-                
+
                 <!-- // Programmation du samedi -->
                 <div class="section">
                     <h3 class="ttl ttl--small">Le samedi</h3>
 
-                    <div class="<?php if (empty($bandsSaturday)) { echo 'section'; } else { ?>artist__section <?php } ?>">
+                    <div class="<?php if (empty($bandsSaturday)) {
+                                    echo 'section';
+                                } else { ?>artist__section <?php } ?>">
                         <?= getBandAsHTML($dbCo, $bandsSaturday); ?>
                     </div>
 
@@ -78,7 +78,9 @@ if (isset($_SESSION['form'])) {
                 <div class="section">
                     <h3 class="ttl ttl--small">Le dimanche</h3>
 
-                    <div class="<?php if (empty($bandsSunday)) { echo 'section'; } else { ?>artist__section <?php } ?>">
+                    <div class="<?php if (empty($bandsSunday)) {
+                                    echo 'section';
+                                } else { ?>artist__section <?php } ?>">
                         <?= getBandAsHTML($dbCo, $bandsSunday); ?>
                     </div>
                 </div>
