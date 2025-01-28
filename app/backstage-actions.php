@@ -377,6 +377,37 @@ if (isset($_POST['action'])) {
             redirectTo();
             exit;
         }
+    } else if ($_POST['action'] === 'delete-event') {
+        if (!isset($_POST['id_event']) || !intval($_POST['id_event'])) {
+            addError('event_not_selected');
+            redirectTo();
+            exit;
+        }
+
+        if (!isset($_POST['id_band']) || !intval($_POST['id_band'])) {
+            addError('band_not_selected');
+            redirectTo();
+            exit;
+        }
+
+        $query = $dbCo->prepare(
+            'DELETE FROM band_event WHERE id_event = :id_event AND id_band = :id_band;'
+        );
+
+        $bindValues = [
+            'id_event' => intval($_POST['id_event']),
+            'id_band' => intval($_POST['id_band'])
+        ];
+
+        if ($query->execute($bindValues)) {
+            addMessage('event_deleted');
+            redirectTo();
+            exit;
+        } else {
+            addError('event_not_deleted');
+            redirectTo();
+            exit;
+        }
     }
 }
 

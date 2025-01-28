@@ -266,7 +266,18 @@ function getBandEventsAsHTML(array $bandEvents, $band)
 
     if (!empty($bandEvents)) {
         foreach ($bandEvents as $event) {
-            $htmlEvents .= '<li class="band__itm ttl">' . $event['name'] . '<span class="band__itm-sep">-</span> <button class="band__itm-link" id="unprogramBtn" data-id="' . $band['id_band'] . '" data-event="' . $event['id_event'] . '">Déprogrammer</button></li>';
+            $htmlEvents .= '
+            <form class="js-unprogramForm" action="backstage-actions.php" method="post">
+            <li class="band__itm ttl">
+            ' . $event['name'] . '<span class="band__itm-sep">-</span> 
+            
+            <button class="band__itm-link" type="submit"value="delete-event">Déprogrammer</button>
+            
+            <input type="hidden" name="id_event" value="' . $event['id_event'] . '">
+            <input type="hidden" name="id_band" value="' . $band['id_band'] . '">
+            <input type="hidden" name="token" value="' . $_SESSION['token'] . '">
+            <input type="hidden" name="action" value="delete-event">
+            </li>';
         }
     } else {
         $htmlEvents .= '<li class="band__itm ttl">Aucune programmation.</li>';
