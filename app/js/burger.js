@@ -16,3 +16,7 @@ burgerMenu.addEventListener('click', function () {
         burgerSvg.src = 'img/burger-active.svg';
     }
 });
+
+window.onload = function () {
+    window.scrollTo(0, 0); // Scroll vers le tout en haut de la page
+}
