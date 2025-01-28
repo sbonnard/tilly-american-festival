@@ -29,6 +29,24 @@ if (isset($_SESSION['form'])) {
     $subject = '';
     $message = '';
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $recaptchaToken = $_POST['recaptcha_token'];
+    $secretKey = '6LfkK8YqAAAAAPvPbPJk-EBYgrEKiOHC_CgkBkAB';
+
+    // Envoyer une requête à l'API reCAPTCHA
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$recaptchaToken");
+    $responseData = json_decode($response);
+
+    if ($responseData->success && $responseData->score > 0.5) {
+        // Le CAPTCHA est validé (score élevé indique un utilisateur légitime)
+        echo "Formulaire validé !";
+        // Traiter le reste du formulaire ici
+    } else {
+        // Échec du CAPTCHA
+        echo "Échec du CAPTCHA. Essayez à nouveau.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +100,7 @@ if (isset($_SESSION['form'])) {
                 <input class="button button--contact slide-right" type="submit" value="Envoyer">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                 <input type="hidden" name="action" value="contact-partner">
+                <input type="hidden" name="recaptcha_token" id="recaptchaToken">
             </form>
         </div>
 
@@ -101,5 +120,16 @@ if (isset($_SESSION['form'])) {
 <script type="module" src="js/burger.js"></script>
 <script type="module" src="js/dropdown.js"></script>
 <script type="module" src="js/notifs.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LfkK8YqAAAAAC-ZIbIsG5WswWE_PEHPhEzfSR9j"></script>
+<script>
+    // Récupère le jeton reCAPTCHA
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LfkK8YqAAAAAC-ZIbIsG5WswWE_PEHPhEzfSR9j', {
+            action: 'submit'
+        }).then(function(token) {
+            document.getElementById('recaptchaToken').value = token;
+        });
+    });
+</script>
 
 </html>
