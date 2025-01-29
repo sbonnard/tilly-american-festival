@@ -9,12 +9,12 @@ function fetchHead()
         <title>Tilly American Festival</title>
 
         <!-- if development -->
-        <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <script type="module" src="http://localhost:5173/js/script.js"></script>
+        <!-- <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/js/script.js"></script> -->
 
         <!-- Production -->
-        <link rel="stylesheet" href="build/assets/script-DVDRAsBl.css">
-        <script type="module" src="build/assets/script-C0BMi_NJ.js"></script>
+        <link rel="stylesheet" href="build/assets/script-T8A232Qs.css">
+        <script type="module" src="build/assets/script-ehuhawxS.js"></script>
         <script type="module" src="https://tillyamericanfestival.com/js/script.js"></script>
         
         <!-- AOS -->

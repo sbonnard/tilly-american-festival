@@ -43,7 +43,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
 
             <a href="backstage.php" class="button button--backstage">Retour aux backstages</a>
 
-            <div class="container--row">
+            <div class="container--flex">
                 <div class="section" aria-labelledby="band-ttl">
                     <h3 class="ttl ttl--small" id="band-ttl">Fiche du groupe</h3>
 
