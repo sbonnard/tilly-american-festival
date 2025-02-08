@@ -7,7 +7,7 @@
  *
  * @return array - An array containing all events.
  */
-function fetchAllEvents(PDO $dbCo)
+function fetchAllGalleryEvents(PDO $dbCo)
 {
     $query = $dbCo->query(
         'SELECT id_event, event.name, banner_url, event.year

@@ -25,4 +25,4 @@ $allSponsors = fetchAllSponsors($dbCo);
 $activeMerchants = fetchActiveMerchants($dbCo);
 
 // Tous les événements
-$allEvents = fetchAllEvents($dbCo);
+$allEvents = fetchAllGalleryEvents($dbCo);
