@@ -9,8 +9,7 @@ require_once 'includes/_datas.php';
 require_once 'includes/templates/_head.php';
 require_once 'includes/templates/_header.php';
 require_once 'includes/templates/_footer.php';
-require_once 'includes/classes/class.band.php';
-require_once 'includes/classes/class.sponsor.php';
+require_once 'includes/classes/class.gallery.php';
 
 if (isset($_SESSION['form'])) {
     unset($_SESSION['form']);
@@ -32,9 +31,13 @@ if (isset($_SESSION['form'])) {
         <div class="container">
 
             <h1 class="ttl">Galerie</h1>
-            <h2 class="subttl ttl--red">De nos évènements passés</h2>
+            <h2 class="subttl ttl--red" id="events-ttl">Tous nos évènements</h2>
 
-            <h3 class="ttl--big">On est encore en chantier ici !</h3>
+            <section class="section" aria-labelledby="events-ttl">
+                <ul class="gallery">
+                    <?= getEventsAsGalleryHTML($allEvents); ?>
+                </ul>
+            </section>
 
         </div>
 

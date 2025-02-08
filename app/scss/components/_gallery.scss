@@ -1,0 +1,53 @@
+@use '../var' as var;
+@use '../fonts';
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    width: 100%;
+
+    @media screen and (min-width: 768px) {
+        width: 31.25rem;
+    }
+
+    &__item {
+        position: relative;
+        width: 100%;
+        height: 6.25rem;
+        height: 6.25rem;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+            background-position: right;
+        }
+    }
+
+    &__link {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        color: var.$white;
+    }
+    
+    &__ttl {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        font-family: 'backcountry', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        font-size: 1.5rem;
+        z-index: 5;
+        width: 100%;
+        height: 100%;
+        background-color: var.$coal75;
+    }
+}

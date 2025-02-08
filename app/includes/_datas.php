@@ -4,6 +4,7 @@ require_once '_database.php';
 require_once 'classes/class.band.php';
 require_once 'classes/class.sponsor.php';
 require_once 'classes/class.merchant.php';
+require_once 'classes/class.gallery.php';
 
 // Les groupes du vendredi.
 $bandsFriday = getBandPerYearPerDay($dbCo, 6);
@@ -22,3 +23,6 @@ $allSponsors = fetchAllSponsors($dbCo);
 
 // Commerçants actifs
 $activeMerchants = fetchActiveMerchants($dbCo);
+
+// Tous les événements
+$allEvents = fetchAllEvents($dbCo);
