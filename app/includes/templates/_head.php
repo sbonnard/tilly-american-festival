@@ -9,8 +9,8 @@ function fetchHead()
         <title>Tilly American Festival</title>
 
         <!-- if development -->
-        <!-- <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <script type="module" src="http://localhost:5173/js/script.js"></script> -->
+        <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/js/script.js"></script>
 
         <!-- Production -->
         <link rel="stylesheet" href="build/assets/script-Bu8F5BoH.css">
