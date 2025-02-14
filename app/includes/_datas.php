@@ -26,3 +26,6 @@ $activeMerchants = fetchActiveMerchants($dbCo);
 
 // Tous les événements
 $allEvents = fetchAllGalleryEvents($dbCo);
+
+// Adresse mail contact
+$contactMail = "contact@tillyamericanfestival.com";

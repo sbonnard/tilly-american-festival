@@ -51,12 +51,11 @@ if (isset($_POST['action'])) {
 
         // Protection contre les en-têtes malveillants
         $subject = str_replace(array("\r", "\n"), '', $_SESSION['form']['subject']);
-        $to = 'sebastien.bonnard94@gmail.com';
         $subject = 'Contact Partenaire : ' . $subject;
-        $body = "Nom: {$_SESSION['form']['fullname']}\Entreprise: {$_SESSION['form']['enterprise']}\nEmail: {$_SESSION['form']['email']}\nMessage: {$_SESSION['form']['message']}";
+        $body = "Nom: {$_SESSION['form']['fullname']}\nEntreprise: {$_SESSION['form']['enterprise']}\nEmail: {$_SESSION['form']['email']}\nMessage: {$_SESSION['form']['message']}";
 
         // Envoi de l'email avec gestion des erreurs
-        if (mail($to, $subject, $body)) {
+        if (mail($contactMail, $subject, $body)) {
             addMessage('message_partner_ok');
             unset($_SESSION['form']);
         } else {
@@ -99,12 +98,11 @@ if (isset($_POST['action'])) {
 
         // Protection contre les en-têtes malveillants
         $subject = str_replace(array("\r", "\n"), '', $_SESSION['form']['subject']);
-        $to = 'sebastien.bonnard94@gmail.com';
         $subject = 'Contact Particulier : ' . $subject;
         $body = "Nom: {$_SESSION['form']['fullname']}\nEmail: {$_SESSION['form']['email']}\nMessage: {$_SESSION['form']['message']}";
 
         // Envoi de l'email avec gestion des erreurs
-        if (mail($to, $subject, $body)) {
+        if (mail($contactMail, $subject, $body)) {
             addMessage('message_partner_ok');
             unset($_SESSION['form']);
         } else {
