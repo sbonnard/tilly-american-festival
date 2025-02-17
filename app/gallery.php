@@ -27,23 +27,25 @@ if (isset($_SESSION['form'])) {
 
     <?= fetchHeader('', '', '', 'nav__lnk--current'); ?>
 
-    <main class="main">
-        <div class="container">
+    <div class="work-in-progress-filter">
+        <main class="main work-in-progress-page">
+            <div class="container">
 
-            <h1 class="ttl">Galerie</h1>
-            <h2 class="subttl ttl--red" id="events-ttl">Tous nos évènements</h2>
+                <h1 class="ttl">Galerie</h1>
+                <h2 class="subttl ttl--red" id="events-ttl">Tous nos évènements</h2>
 
-            <section class="section" aria-labelledby="events-ttl">
-                <ul class="gallery">
-                    <?= getEventsAsGalleryHTML($allEvents); ?>
-                </ul>
-            </section>
+                <section class="section" aria-labelledby="events-ttl">
+                    <ul class="gallery">
+                        <?= getEventsAsGalleryHTML($allEvents); ?>
+                    </ul>
+                </section>
 
-        </div>
+            </div>
 
 
-        <?= displayCowquitaf(); ?>
-    </main>
+            <?= displayCowquitaf(); ?>
+        </main>
+    </div>
 
     <footer class="footer">
         <?= fetchFooter($activeSponsors); ?>

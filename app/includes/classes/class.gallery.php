@@ -11,7 +11,8 @@ function fetchAllGalleryEvents(PDO $dbCo)
 {
     $query = $dbCo->query(
         'SELECT id_event, event.name, banner_url, event.year
-        FROM event'
+        FROM event
+        ORDER BY year DESC;'
     );
 
     return $query->fetchAll(PDO::FETCH_ASSOC);

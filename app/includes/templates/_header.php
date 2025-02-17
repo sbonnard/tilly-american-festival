@@ -66,11 +66,13 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
  */
 function showLinkIfConnected(string $backstage, string $logout, string $source): string
 {
+    $specialLinks = '';
+
     if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESSION['admin']) && $_SESSION['admin'] === 1) {
-        return '<li class="red-separator" aria-hidden="true">|<li>
+        $specialLinks .= '<li class="red-separator" aria-hidden="true">|</li>
             <li class="nav__itm"><a class="nav__lnk ' . $backstage . '" href="' . $source . 'backstage.php">Backstage</a></li>' .
             '<li class="nav__itm"><a class="nav__lnk ' . $logout . '" href="' . $source . 'logout.php">Déconnexion</a></li>';
-    } else {
-        return '';
     }
+
+    return $specialLinks;
 }
