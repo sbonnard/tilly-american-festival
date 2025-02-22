@@ -19,5 +19,44 @@
 
     &__logo {
         width: 6.5rem;
+
+        &--inactive {
+            filter: grayscale(100%);
+        }
+    }
+
+    &__container {
+        position: relative;
+    }
+
+    &__button {
+        position: absolute;
+        width: 2.5rem;
+        height: 2.5rem;
+        z-index: 2;
+        top: 50%;
+        left: 75%;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        cursor: pointer;
+
+
+        &--active {
+            background-image: url(../img/check-circle.svg);
+
+
+            &:hover {
+                background-image: url(../img/cross-circle.svg);
+            }
+        }
+
+        &--inactive {
+            background-image: url(../img/cross-circle.svg);
+
+            &:hover {
+                background-image: url(../img/check-circle.svg);
+            }
+        }
     }
 }

@@ -46,7 +46,7 @@ if (isset($_SESSION['form'])) {
             </section>
 
             <section class="section" aria-labelledby="program">
-                <img class="horns" src="img/horns.webp" alt="Cornes de boeuf">
+                <img class="horns" src="img/horns-ben.webp" alt="Cornes de boeuf">
                 <h2 class="ttl" id="program">La Programmation</h2>
 
                 <!-- // Programmation du vendredi -->

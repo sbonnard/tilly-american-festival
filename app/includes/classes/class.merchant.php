@@ -28,7 +28,7 @@ function fetchActiveMerchants(PDO $dbCo): array
  * @param array $merchants - The merchant array.
  * @return string - The generated HTML string.
  */
-function listMerchantsHTML(array $activeMerchants): string
+function listMerchantsHTML(array $activeMerchants, array $session = []): string
 {
     $htmlMerchants = '<ul class="merchant__list">';
 
@@ -38,8 +38,14 @@ function listMerchantsHTML(array $activeMerchants): string
 
     foreach ($activeMerchants as $merchant) {
         $htmlMerchants .= '
-            <li class="merchant" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">
-                <img class="merchant__img" src="img/' . $merchant['img_url'] . '" alt="Photo de ' . $merchant['name'] . '">
+            <li class="merchant" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">';
+
+        if (isset($session['admin']) && $session['admin'] === 1) {
+            $htmlMerchants .= '<button class="merchant__button" data-merchant-id="' . $merchant['id_merchant'] . '" onclick="confirmDeleteMerchant(this)"></button>';
+        }
+
+
+        $htmlMerchants .= '<img class="merchant__img" src="img/' . $merchant['img_url'] . '" alt="Photo de ' . $merchant['name'] . '">
                 <div class="flex-column">
                     <h4 class="merchant__name">' . $merchant['name'] . '</h4>
                     <p class="merchant__description">' . $merchant['description'] . '</p>

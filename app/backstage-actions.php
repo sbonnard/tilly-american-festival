@@ -470,7 +470,7 @@ if (isset($_POST['action'])) {
         }
 
         if ($attachmentFileName === 'default.webp' || $attachmentFileName === '') {
-            addError('sponsorLogo_ko');
+            addError('merchant_image_ko');
             redirectTo();
             exit;
         }
@@ -486,14 +486,14 @@ if (isset($_POST['action'])) {
         ];
 
         if ($query->execute($bindValues)) {
-            addMessage('sponsor_created');
+            addMessage('merchant_created');
             redirectTo('backstage.php');
             exit;
         } else {
             $_SESSION['form']['merchantName'] = $merchantName;
             $_SESSION['form']['description'] = $description;
 
-            addError('sponsor_not_created');
+            addError('merchant_not_created');
             redirectTo();
             exit;
         }
