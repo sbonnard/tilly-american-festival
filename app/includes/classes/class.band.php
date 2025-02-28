@@ -307,3 +307,25 @@ function GetHTMLWallOfFame(array $wallOfFame): string
 
     return $wallOfFameHTML;
 }
+
+
+/**
+ * Fetches all bands that have played in the past for the Wall Of Fame.
+ *
+ * @param PDO $dbCo - Connection to the database.
+ *
+ * @return array - An associative array containing band information.
+ */
+function getAllBandsForWallOfFame(PDO $dbCo): array
+{
+    $queryBand = $dbCo->query(
+        'SELECT band.id_band, band.name
+        FROM band
+        JOIN band_event ON band.id_band = band_event.id_band
+        WHERE band_event.date < CURDATE();'
+    );
+
+    $queryBand->execute();
+
+    return $queryBand->fetchAll(PDO::FETCH_ASSOC);
+}
