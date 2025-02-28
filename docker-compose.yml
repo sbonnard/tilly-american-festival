@@ -10,7 +10,7 @@ services:
     volumes:
       - ./app:/var/www/html
     ports:
-      - "8282:80"
+      - "8888:80"
     depends_on:
       - db
       - mailhog

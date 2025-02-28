@@ -116,9 +116,9 @@ $allEvents = fetchAllEvents($dbCo);
 <script type="module" src="js/burger.js"></script>
 <script type="module" src="js/dropdown.js"></script>
 <script type="module" src="js/notifs.js"></script>
-<script type="module" src="js/ajax.js"></script>
+<script type="module" src="js/ajaxxxx.js"></script>
 <script>
-function confirmDeleteMerchant(button) {
+    function confirmDeleteMerchant(button) {
     // Demander confirmation
     const isConfirmed = confirm("Êtes-vous sûr de vouloir supprimer l'exposant ? Cette action est IRREVERSIBLE.");
 
@@ -127,7 +127,9 @@ function confirmDeleteMerchant(button) {
         const merchantId = button.getAttribute("data-merchant-id");
 
         // Envoi de la requête AJAX pour supprimer le marchand
-        const data = { merchant_id: merchantId };
+        const data = { id_merchant: merchantId };
+        
+        console.log(data)
 
         fetch("api.php", {
             method: "POST",
@@ -164,7 +166,6 @@ function confirmDeleteMerchant(button) {
         console.log("Suppression annulée");
     }
 }
-
 </script>
 
 </html>

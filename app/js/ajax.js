@@ -21,8 +21,8 @@ document.querySelectorAll(".sponsor__button").forEach(button => {
         const img = listItem.querySelector(".sponsor__logo");
 
         // Préparer les données à envoyer
-        const data = { sponsor_id: sponsorId, active: newStatus };
-
+        const data = { id_sponsor: sponsorId, is_active: newStatus };
+        console.log(data)
         try {
             const response = await fetch("../api.php", {
                 method: "POST",

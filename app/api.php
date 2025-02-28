@@ -8,9 +8,9 @@ header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (isset($data['sponsor_id'], $data['active'])) {
-    $sponsorId = intval($data['sponsor_id']);
-    $newStatus = intval($data['active']); // 1 = actif, 0 = inactif
+if (isset($data['id_sponsor'], $data['is_active'])) {
+    $sponsorId = intval($data['id_sponsor']);
+    $newStatus = intval($data['is_active']); // 1 = actif, 0 = inactif
 
     $query = $dbCo->prepare(
         'UPDATE sponsor
@@ -18,12 +18,10 @@ if (isset($data['sponsor_id'], $data['active'])) {
         WHERE id_sponsor = :sponsor_id;'
     );
 
-    $bindValues = [
+    $query->execute([
         'is_active' => $newStatus,
         'sponsor_id' => $sponsorId
-    ];
-
-    $query->execute($bindValues);
+    ]);
 
     if ($query->rowCount() === 0) {
         echo json_encode(["success" => false, "error" => "Sponsor introuvable"]);
@@ -31,29 +29,31 @@ if (isset($data['sponsor_id'], $data['active'])) {
     }
 
     echo json_encode(["success" => true, "new_status" => $newStatus]);
-} else {
-    echo json_encode(["success" => false, "error" => "Données manquantes"]);
+    exit();
 }
 
-
-if (isset($data['merchant_id'])) {
-    $merchantId = intval($data['merchant_id']);
+// Traitement de la suppression d'un marchand
+if (isset($data['id_merchant'])) {
+    $merchantId = intval($data['id_merchant']);
 
     $query = $dbCo->prepare(
         'DELETE FROM merchant WHERE id_merchant = :merchant_id;'
     );
 
-    $bindValues = [
-        'merchant_id' => $merchantId
-    ];
-
-    $query->execute($bindValues);
+    $query->execute(['merchant_id' => $merchantId]);
 
     if ($query->rowCount() > 0) {
-        echo json_encode(["success" => true]);
-    } else {
+    } 
+    
+    if ($query->rowCount() === 0) {
         echo json_encode(["success" => false, "error" => "Marchand introuvable"]);
+        exit();
     }
-} else {
-    echo json_encode(["success" => false, "error" => "ID du marchand manquant"]);
+    
+        echo json_encode(["success" => true]);
+        exit();
 }
+
+// Si aucune action n'est détectée
+echo json_encode(["success" => false, "error" => "Données invalides"]);
+exit();
