@@ -40,6 +40,11 @@ if (isset($_SESSION['form'])) {
                     </ul>
                 </section>
 
+                <section class="section" aria-labelledby="walloffame-ttl">
+                    <h2 class="ttl ttl--red walloffame__ttl" id="walloffame-ttl">Le Wall Of Fame</h2>
+                    <?= GetHTMLWallOfFame($wallOfFame); ?>
+                </section>
+
             </div>
 
 

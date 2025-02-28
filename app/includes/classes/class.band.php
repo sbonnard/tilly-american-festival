@@ -285,3 +285,25 @@ function getBandEventsAsHTML(array $bandEvents, $band)
 
     return $htmlEvents;
 }
+
+/**
+ * Generates an HTML list of bands from an array of bands.
+ *
+ * @param array $wallOfFame - The array containing all bands.
+ * @return string - The generated HTML list.
+ */
+function GetHTMLWallOfFame(array $wallOfFame): string
+{
+    $wallOfFameHTML = '<ul class="walloffame">';
+
+    if (!empty($wallOfFame)) {
+        foreach ($wallOfFame as $band) {
+            $wallOfFameHTML .= '<li class="walloffame__itm ttl" data-aos="zoom-in" data-aos-duration="1500">' . $band['name'] . '</li>';
+        }
+    } else {
+        $wallOfFameHTML .= '<li class="walloffame__itm ttl">Aucun groupe à afficher.</li>';
+    }
+    $wallOfFameHTML .= '</ul>';
+
+    return $wallOfFameHTML;
+}

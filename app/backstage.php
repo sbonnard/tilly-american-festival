@@ -24,6 +24,7 @@ checkConnection($_SESSION);
 $allBands = fetchAllBands($dbCo);
 $allEvents = fetchAllEvents($dbCo);
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

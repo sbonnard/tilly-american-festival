@@ -26,6 +26,10 @@
         @media screen and (max-width: 768px) {
             background-position: right;
         }
+
+        &:hover {
+            border: 2px solid var.$blueJeans;
+        }
     }
 
     &__link {

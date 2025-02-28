@@ -1,0 +1,22 @@
+@use '../var' as var;
+
+.walloffame {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    border-top: 0.5px solid var.$red;
+
+    &__ttl {
+        padding-top: 2rem;
+    }
+
+    &__itm {
+        &:hover {
+            filter: drop-shadow(0 0 1rem var.$blueJeans);
+        }
+    }
+}

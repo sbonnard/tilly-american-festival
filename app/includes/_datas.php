@@ -15,6 +15,12 @@ $bandsSaturday = getBandPerYearPerDay($dbCo, 7);
 // Les groupes du dimanche 
 $bandsSunday = getBandPerYearPerDay($dbCo, 1);
 
+// Tous les groupes
+$allBandsEver = fetchAllBands($dbCo);
+
+// Groupes du Wall Of Fame
+$wallOfFame = fetchAllBands($dbCo);
+
 // Sponsors actifs
 $activeSponsors = fetchActiveSponsors($dbCo);
 
