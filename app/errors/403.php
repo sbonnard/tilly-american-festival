@@ -32,9 +32,7 @@ $source = '../';
 
 <body>
 
-    <header class="header">
-        <?= fetchHeader('', '', '', '', '', '', $source); ?>
-    </header>
+    <?= fetchHeader('', '', '', '', '', '', $source); ?>
 
     <main class="main">
         <div class="container container--error">

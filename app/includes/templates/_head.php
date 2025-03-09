@@ -5,7 +5,7 @@ function fetchHead()
     return '
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Site officiel du festival américain de Tilly-Sur-Seulles en Normandie : Le Tilly American Festival.">
+        <meta name="description" content="Plongez dans l\'ambiance unique du Tilly American Festival en Normandie : concerts, animations et culture US au rendez-vous !">
         <title>Tilly American Festival</title>
 
         <!-- if development -->
