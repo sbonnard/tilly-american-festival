@@ -13,8 +13,8 @@ function fetchHead()
         <script type="module" src="http://localhost:5173/js/script.js"></script>
 
         <!-- Production -->
-        <link rel="stylesheet" href="build/assets/script-BjQ0Uw0F.css">
-        <script type="module" src="build/assets/script-BWxrSY78.js"></script>
+        <link rel="stylesheet" href="build/assets/script-Co6dbnCSX.css">
+        <script type="module" src="build/assets/script-DLX95CE22.js"></script>
         <script type="module" src="https://tillyamericanfestival.com/js/script.js"></script>
         
         <!-- AOS -->
