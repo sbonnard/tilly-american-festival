@@ -97,7 +97,7 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
  * @param array $bands - The band array.
  * @return array - An array containing all links for a band.
  */
-function fetchBandLinks(PDO $dbCo, array $band): array
+function fetchBandLinks(PDO $dbCo, array $band): array | null
 {
     $queryBandLinks = $dbCo->prepare(
         'SELECT url, id_band, logo_url, name
@@ -328,4 +328,32 @@ function getAllBandsForWallOfFame(PDO $dbCo): array
     $queryBand->execute();
 
     return $queryBand->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+/**
+ * Fetch all links for a band.
+ *
+ * @param PDO $dbCo - Connection to database.
+ * @param array $bands - The band array.
+ * @return array - An array containing all links for a band.
+ */
+function fetchBandLinksPerSite(PDO $dbCo, int $site): array | null
+{
+    $queryBandLinks = $dbCo->prepare(
+        'SELECT band_links.url
+        FROM band_links
+            JOIN website USING (id_website)
+        WHERE id_website = :id_website
+        ORDER BY id_website;'
+    );
+
+    $bindValues = [
+        'id_website' => $site
+    ];
+
+    $queryBandLinks->execute($bindValues);
+
+    return $queryBandLinks->fetch(PDO::FETCH_ASSOC);
 }

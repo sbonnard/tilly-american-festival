@@ -35,3 +35,11 @@ $allEvents = fetchAllGalleryEvents($dbCo);
 
 // Adresse mail contact
 $contactMail = "contact@tillyamericanfestival.com";
+
+
+// Sites ID
+
+$youtube = 1;
+$website = 2;
+$instagram = 3;
+$facebook = 4;

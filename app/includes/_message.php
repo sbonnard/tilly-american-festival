@@ -9,6 +9,7 @@ $messages = [
     'sponsor_created' => 'Votre sponsor a bien ete créé !',
     'event_deleted' => 'Votre evenement a bien ete déprogrammé !',
     'merchant_created' => 'Votre exposant a bien ete créé !',
+    'band_updated' => 'Votre groupe a bien ete mis à jour !',
 ];
 
 $errors = [
@@ -44,7 +45,8 @@ $errors = [
     'band_not_selected' => 'Merci de choisir un groupe.',
     'event_not_deleted' => 'L\'evenement n\'a pas pu etre supprimé.',
     'merchant_image_ko' => 'Le fichier saisi n\'est pas valide en illustration de l\'exposant.',
-    'merchant_not_created' => 'L\'exposant n\'a pas pu etre cree.'
+    'merchant_not_created' => 'L\'exposant n\'a pas pu etre cree.',
+    'band_update_error' => 'Le groupe n\'a pas pu être mis à jour.',
 ];
 
 

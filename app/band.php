@@ -51,6 +51,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
                         <?= getBandAsHTML($dbCo, getOneBand($dbCo, $_GET)); ?>
                     </div>
 
+                    <a href="band-form.php?band=<?= $_GET['band'] ?>" class="button button--backstage">Modifier groupe</a>
                 </div>
 
                 <div class="section" aria-labelledby="program-ttl">
@@ -60,6 +61,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
                         <?= getBandEventsAsHTML($bandEvents, $myBand[0]) ?>
                     </div>
                 </div>
+
 
             </div>
 
