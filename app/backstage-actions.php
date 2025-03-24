@@ -503,44 +503,44 @@ if (isset($_POST['action'])) {
             redirectTo();
             exit;
         }
-    
+
         if (empty($_POST['bandName'])) {
             addError('bandName_ko');
             redirectTo();
             exit;
         }
-    
+
         if (empty($_POST['description'])) {
             addError('description_ko');
             redirectTo();
             exit;
         }
-    
+
         try {
             // Gestion du fichier attaché
             $attachmentFileName = 'default.webp'; // Valeur par défaut
             if (!empty($_FILES['attachment']['name'])) {
                 $uploadDir = __DIR__ . '/img/'; // Dossier de destination
-    
+
                 // Vérification que le dossier existe, sinon le créer
                 if (!is_dir($uploadDir) && !mkdir($uploadDir, 0775, true) && !is_dir($uploadDir)) {
                     throw new Exception("Impossible de créer le dossier d'upload.");
                 }
-    
+
                 // Récupérer les informations du fichier
                 $fileName = pathinfo($_FILES['attachment']['name'], PATHINFO_FILENAME);
                 $fileExtension = pathinfo($_FILES['attachment']['name'], PATHINFO_EXTENSION);
-    
+
                 // time() pour assurer un nom de fichier unique.
                 $attachmentFileName = $fileName . '_' . time() . '.' . $fileExtension;
                 $uploadFile = $uploadDir . $attachmentFileName;
-    
+
                 // Vérification de l'erreur de téléchargement
                 if ($_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
                     // Vérification des types de fichiers autorisés
                     $allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
                     $fileType = mime_content_type($_FILES['attachment']['tmp_name']);
-    
+
                     if (in_array($fileType, $allowedTypes)) {
                         // Déplacer le fichier vers le dossier de destination
                         if (!move_uploaded_file($_FILES['attachment']['tmp_name'], $uploadFile)) {
@@ -554,18 +554,18 @@ if (isset($_POST['action'])) {
                     throw new Exception("Erreur de téléchargement.");
                 }
             }
-    
+
             $query = $dbCo->prepare(
                 'UPDATE band SET name = :name, description = :description, img_url = :attachment WHERE id_band = :id_band;'
             );
-    
+
             $isUpdateOk = $query->execute([
                 'name' => htmlspecialchars($_POST['bandName']),
                 'description' => htmlspecialchars($_POST['description']),
                 'attachment' => htmlspecialchars($attachmentFileName),
                 'id_band' => intval($_POST['id_band'])
             ]);
-    
+
             if ($isUpdateOk) {
                 // Préparer les données pour `band_links`
                 $links = [
@@ -574,11 +574,11 @@ if (isset($_POST['action'])) {
                     ['url' => $_POST['instaLnk'] ?? '', 'id_website' => 3],
                     ['url' => $_POST['webLnk'] ?? '', 'id_website' => 2],
                 ];
-    
+
                 $query = $dbCo->prepare(
                     'UPDATE band_links SET url = :url WHERE id_band = :id_band AND id_website = :id_website;'
                 );
-    
+
                 foreach ($links as $link) {
                     if (!empty($link['url'])) {
                         $query->execute([
@@ -588,7 +588,7 @@ if (isset($_POST['action'])) {
                         ]);
                     }
                 }
-    
+
                 addMessage('band_updated');
                 redirectTo('backstage.php');
             } else {
@@ -596,7 +596,7 @@ if (isset($_POST['action'])) {
             }
         } catch (Exception $e) {
             addError('band_update_error');
-    
+
             // Stockage des valeurs en session pour éviter la perte des données en cas d'erreur
             $_SESSION['form'] = [
                 'bandName' => $_POST['bandName'] ?? '',
@@ -606,13 +606,79 @@ if (isset($_POST['action'])) {
                 'instaLnk' => $_POST['instaLnk'] ?? '',
                 'webLnk' => $_POST['webLnk'] ?? ''
             ];
-    
+
             redirectTo();
             exit;
         }
-    }
+    } else if ($_POST['action'] === 'add-to-gallery') {
+        if (!isset($_POST['event-select']) || $_POST['event-select'] <= 0) {
+            addError('event_select_error');
+            redirectTo();
+            exit;
+        }
     
+        $uploadDir = __DIR__ . '/gallery/'; // Dossier de destination
+    
+        // Vérifier et créer le dossier si nécessaire
+        if (!is_dir($uploadDir) && !mkdir($uploadDir, 0775, true) && !is_dir($uploadDir)) {
+            throw new Exception("Impossible de créer le dossier d'upload.");
+        }
+    
+        $allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
+        $uploadedFiles = [];
+    
+        foreach ($_FILES['attachments']['name'] as $key => $name) {
+            if ($_FILES['attachments']['error'][$key] === UPLOAD_ERR_OK) {
+                $fileType = mime_content_type($_FILES['attachments']['tmp_name'][$key]);
+    
+                if (in_array($fileType, $allowedTypes)) {
+                    $fileName = pathinfo($name, PATHINFO_FILENAME);
+                    $fileExtension = pathinfo($name, PATHINFO_EXTENSION);
+    
+                    // Générer un nom unique
+                    $uniqueFileName = $fileName . '_' . time() . '_' . uniqid() . '.' . $fileExtension;
+                    $uploadFile = $uploadDir . $uniqueFileName;
+    
+                    if (move_uploaded_file($_FILES['attachments']['tmp_name'][$key], $uploadFile)) {
+                        $uploadedFiles[] = htmlspecialchars($uniqueFileName);
+                    } else {
+                        addError("Erreur lors du téléchargement de l'image : " . $name);
+                        continue;  // Passe au fichier suivant
+                    }
+                } else {
+                    addError("Type de fichier non autorisé : " . $name);
+                    continue;
+                }
+            } else {
+                addError("Erreur de téléchargement pour : " . $name);
+                continue;
+            }
+        }
+    
+        if (!empty($uploadedFiles)) {
+            try {
+                $dbCo->beginTransaction();
+    
+                $stmt = $dbCo->prepare("INSERT INTO gallery (id_event, file_url) VALUES (:event_id, :file_url)");
+    
+                foreach ($uploadedFiles as $file) {
+                    $stmt->execute([
+                        ':event_id' => intval($_POST['event-select']),
+                        ':file_url' => $file
+                    ]);
+                }
+    
+                $dbCo->commit();
+                addMessage('gallery_updated');
+            } catch (Exception $e) {
+                $dbCo->rollBack();
+                throw new Exception("Erreur lors de l'insertion en base : " . $e->getMessage());
+            }
+        }
+    
+        redirectTo('backstage.php');
+        exit;
+    }
 }
-
 
 redirectTo();

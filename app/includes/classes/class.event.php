@@ -71,3 +71,45 @@ function getAlleventsAsList(array $allEvents): string
 
     return $listEvents;
 }
+
+
+/**
+ * Generates HTML select options for a list of events.
+ *
+ * @param array $allEvents - The array containing all events.
+ *
+ * @return string - The generated HTML select options.
+ */
+function getAllEventsAsSelectOptions(array $allEvents):string {
+    $options = '';
+
+    foreach ($allEvents as $event) {
+        $options .= '<option value="' . $event['id_event'] . '">' . $event['name'] . '</option>';
+    }
+
+    return $options;
+}
+
+/**
+ * Fetches information for a specific event from the database.
+ *
+ * @param PDO $dbCo - Connection to the database.
+ * @param array $get - The $_GET array containing the event ID.
+ *
+ * @return array - An associative array containing event information.
+ */
+function getOneEvent(PDO $dbCo, array $get): array {
+    $queryEvent = $dbCo->prepare(
+        'SELECT *
+        FROM event
+        WHERE id_event = :id_event;'
+    );
+
+    $bindValues = [
+        'id_event' => intval($get['event'])
+    ];
+
+    $queryEvent->execute($bindValues);
+
+    return $queryEvent->fetch(PDO::FETCH_ASSOC);
+}

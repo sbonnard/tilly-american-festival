@@ -38,7 +38,7 @@
         height: 100%;
         color: var.$white;
     }
-    
+
     &__ttl {
         display: flex;
         align-items: center;
@@ -53,5 +53,58 @@
         width: 100%;
         height: 100%;
         background-color: var.$coal75;
+    }
+
+    &__photos__lst {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @media screen and (min-width: 768px) {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    &__photo {
+        width: 10rem;
+        aspect-ratio: 1/1;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.2s ease-in-out, width 0.2s ease-in-out, height 0.2s ease-in-out;
+        overflow: hidden;
+        position: relative;
+    
+        
+        &:hover {
+            transform: scale(2.5);
+            background-size: contain;
+            z-index: 2;
+        }
+
+        @media screen and (max-width: 768px) {
+            width: 15rem;
+            aspect-ratio: 1/1;
+
+            &:hover {
+                transform: scale(1.5);
+            }
+        }
+    }
+
+    &__artist-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+            flex-direction: row;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
     }
 }

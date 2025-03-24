@@ -10,6 +10,9 @@ const bandDropdownContent = document.getElementById('band-dropdown-content');
 const eventDropdown = document.getElementById('event-dropdown');
 const eventDropdownContent = document.getElementById('event-dropdown-content');
 
+const galleryDropdown = document.getElementById('gallery-dropdown');
+const galleryDropdownContent = document.getElementById('gallery-dropdown-content');
+
 /**
  * Toggles the visibility of a dropdown content section when the dropdown is clicked.
  *
@@ -32,3 +35,4 @@ getDropDown(sponsorDropdown, sponsorDropdownContent);
 getDropDown(merchantDropdown, merchantDropdownContent);
 getDropDown(bandDropdown, bandDropdownContent);
 getDropDown(eventDropdown, eventDropdownContent);
+getDropDown(galleryDropdown, galleryDropdownContent);

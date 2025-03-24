@@ -10,6 +10,7 @@ $messages = [
     'event_deleted' => 'Votre evenement a bien ete déprogrammé !',
     'merchant_created' => 'Votre exposant a bien ete créé !',
     'band_updated' => 'Votre groupe a bien ete mis à jour !',
+    'gallery_updated' => 'Votre galerie a bien ete mise à jour !',
 ];
 
 $errors = [
@@ -47,6 +48,7 @@ $errors = [
     'merchant_image_ko' => 'Le fichier saisi n\'est pas valide en illustration de l\'exposant.',
     'merchant_not_created' => 'L\'exposant n\'a pas pu etre cree.',
     'band_update_error' => 'Le groupe n\'a pas pu être mis à jour.',
+    'event_select_error' => 'Merci de choisir un evenement.'
 ];
 
 
