@@ -45,10 +45,10 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
 
             <div class="container--flex">
                 <div class="section" aria-labelledby="band-ttl">
-                    <h3 class="ttl ttl--small" id="band-ttl">Fiche du groupe</h3>
+                    <h3 class="ttl ttl--small" id="band-ttl">Fiche de l'Évènement</h3>
 
                     <div class="section">
-                        <?= getBandAsHTML($dbCo, getOneBand($dbCo, $_GET)); ?>
+                       
                     </div>
 
                 </div>
@@ -82,27 +82,6 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
 </script>
 <script type="module" src="js/burger.js"></script>
 <script type="module" src="js/notifs.js"></script>
-<script>
-    // Sélectionne tous les formulaires avec la classe 'unprogramForm'
-    const forms = document.querySelectorAll('.js-unprogramForm');
-
-    forms.forEach(form => {
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Empêche l'envoi par défaut
-
-            // Récupérer les données des attributs data-*
-            const idBand = this.dataset.idBand;
-            const idEvent = this.dataset.idEvent;
-
-            // Confirmation avant la soumission
-            const confirmation = confirm(`Valider la déprogrammation ?`);
-            if (confirmation) {
-                // Si confirmé, soumettre le formulaire
-                this.submit();
-            }
-        });
-    });
-</script>
 <script>
     window.onload = function() {
         window.scrollTo(0, 0); // Scroll vers le tout en haut de la page

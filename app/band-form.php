@@ -25,29 +25,6 @@ $facebookLnk = '';
 $instaLnk = '';
 $webLnk = '';
 
-if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
-    $myBand = getOneBand($dbCo, $_GET);
-    $idBand = $myBand[0]['id_band'];
-    $name = $myBand[0]['name'];
-    $description = $myBand[0]['description'];
-
-    if (fetchBandLinksPerSite($dbCo, $youtube) <> null) {
-        $youtubeLnk = implode(fetchBandLinksPerSite($dbCo, $youtube));
-    }
-
-    if (fetchBandLinksPerSite($dbCo, $facebook) <> null) {
-        $facebookLnk = implode(fetchBandLinksPerSite($dbCo, $facebook));
-    }
-
-    if (fetchBandLinksPerSite($dbCo, $instagram) <> null) {
-        $instaLnk = implode(fetchBandLinksPerSite($dbCo, $instagram));
-    }
-
-    if (fetchBandLinksPerSite($dbCo, $website) <> null) {
-        $webLnk = implode(fetchBandLinksPerSite($dbCo, $website));
-    }
-}
-
 if (isset($_SESSION['form'])) {
 
     if (isset($_SESSION['form']['bandName'])) {
@@ -127,16 +104,12 @@ if (isset($_SESSION['form'])) {
                     <li class="form__item">
                         <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
+                        <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
                     </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <?php if (isset($idBand)) {
-                    echo '<input type="hidden" name="id_band" value="' . $idBand . '">
-                    <input type="hidden" name="action" value="update-band">';
-                } else {
-                    echo '<input type="hidden" name="action" value="new-band">';
-                } ?>
+                <input type="hidden" name="action" value="new-band">
             </form>
 
         </div>
