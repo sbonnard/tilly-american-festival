@@ -29,5 +29,13 @@
 
     &__itm {
         font-size: 1.25rem;
+
+        @media screen and (max-width: 1282px) {
+            font-size: 1rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            font-size: 1.25rem;
+        }
     }
 }

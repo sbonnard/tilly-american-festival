@@ -67,7 +67,7 @@
     }
 
     &__photo {
-        width: 10rem;
+        width: 12rem;
         aspect-ratio: 1/1;
         background-size: cover;
         background-position: center;
@@ -78,7 +78,7 @@
     
         
         &:hover {
-            transform: scale(2.5);
+            transform: scale(3);
             background-size: contain;
             z-index: 2;
         }
