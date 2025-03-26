@@ -67,7 +67,7 @@
     }
 
     &__photo {
-        width: 12rem;
+        width: 15rem;
         aspect-ratio: 1/1;
         background-size: cover;
         background-position: center;
@@ -81,6 +81,12 @@
             transform: scale(3);
             background-size: contain;
             z-index: 2;
+        }
+
+
+
+        @media screen and (max-width: 1282px) {
+            width: 12rem;
         }
 
         @media screen and (max-width: 768px) {
