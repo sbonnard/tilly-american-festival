@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="container">
             <h1 class="ttl" id="partner-ttl">Nous contacter</h1>
             <h2 class="subttl ttl--red">En tant que partenaire</h2>
-            <p class="txt txt--center">Vous souhaitez nous rejoindre en tant que partenaire ou en tant que commerçant ? Prenez contact !</p>
+            <p class="txt txt--center">Vous souhaitez nous rejoindre en tant que partenaire ou en tant que commerçant ou exposant ? Prenez contact !</p>
             <?= getErrorMessage($errors); ?>
             <?= getSuccessMessage($messages); ?>
 

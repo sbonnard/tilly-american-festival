@@ -5,8 +5,9 @@ function fetchHead()
     return '
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Plongez dans l\'ambiance unique du Tilly American Festival en Normandie : concerts, animations et culture US au rendez-vous !">
-        <title>Tilly American Festival</title>
+        <!-- <meta name="description" content="Plongez dans l\'ambiance unique du Tilly American Festival en Normandie : concerts, animations et culture US au rendez-vous !"> -->
+        <meta name="description" content="Plongez dans l’ambiance unique du Tilly American Festival, un festival rétro en Normandie (Calvados) : concerts, animations et culture US au cœur de la France !">
+        <title>Tilly American Festival – Festival américain en Normandie (Calvados)</title>
 
         <!-- if development -->
         <script type="module" src="http://localhost:5173/@vite/client"></script>

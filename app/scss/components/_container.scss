@@ -12,6 +12,10 @@
         gap: 4rem;
     }
 
+    @media screen and (max-width: 1282px) {
+        padding: 0 1.5rem;
+    }
+
     &--error {
         padding: 2rem 0;
 

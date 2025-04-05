@@ -44,7 +44,7 @@ if (isset($_SESSION['form'])) {
                     <p>Enfin, la Normandie est réputée pour sa gastronomie exceptionnelle : les fromages locaux (comme le camembert ou le livarot), le cidre, le calvados et les fruits de mer ajoutent une dimension gourmande à l’expérience, offrant une combinaison parfaite de découvertes historiques, culturelles et culinaires.</p>
                     <p>De nombreuses solutions d’hébergement sont disponibles à proximité du festival : campings, Airbnb, maisons d’hôtes, et bien d’autres, idéales pour les visiteurs venant de loin !</p>
                 </div>
-                <a class="web__lnk" href="https://www.calvados-tourisme.com"><img class="web__logo" src="img/web.svg" alt="Symbole web">Calvados Tourisme ⮕</a>
+                <a class="web__lnk" href="https://www.calvados-tourisme.com" target="_blank"><img class="web__logo" src="img/web.svg" alt="Symbole web">Calvados Tourisme ⮕</a>
             </section>
 
             <section class="section" aria-labelledby="caen-ttl">
@@ -53,7 +53,7 @@ if (isset($_SESSION['form'])) {
                 <div class="section section--left">
                     <p>Caen, capitale historique de la Normandie, est une ville riche en histoire et en patrimoine. Marquée par Guillaume le Conquérant, elle abrite des monuments emblématiques comme le Château de Caen et les abbayes aux Hommes et aux Dames. Pendant la Seconde Guerre mondiale, la ville a joué un rôle central lors de la Bataille de Normandie, un héritage commémoré au Mémorial de Caen, musée incontournable. Aujourd’hui, Caen séduit par son dynamisme culturel, ses espaces verts et sa proximité avec les plages du Débarquement, en faisant un lieu à la fois historique, vivant et attractif.</p>
                 </div>
-                <a class="web__lnk" href="https://www.caenlamer-tourisme.fr"><img class="web__logo" src="img/web.svg" alt="Symbole web">Tourisme à Caen ⮕</a>
+                <a class="web__lnk" href="https://www.caenlamer-tourisme.fr" target="_blank"><img class="web__logo" src="img/web.svg" alt="Symbole web">Tourisme à Caen ⮕</a>
             </section>
 
             <section class="section" aria-labelledby="bayeux-ttl">
@@ -62,7 +62,7 @@ if (isset($_SESSION['form'])) {
                 <div class="section section--left">
                     <p>Bayeux, joyau de la Normandie, est une ville au charme médiéval célèbre pour sa Tapisserie de Bayeux, chef-d'œuvre classé au patrimoine mondial de l'UNESCO, qui raconte l’épopée de Guillaume le Conquérant. Épargnée par les destructions de la Seconde Guerre mondiale, la ville offre un riche patrimoine architectural avec sa magnifique cathédrale Notre-Dame et ses rues pittoresques. Située à proximité des plages du Débarquement, Bayeux joue également un rôle clé dans le souvenir du D-Day, avec notamment le Musée Mémorial de la Bataille de Normandie. Alliant histoire, culture et authenticité, Bayeux est une destination incontournable de la région.</p>
                 </div>
-                <a class="web__lnk" href="https://bayeux-bessin-tourisme.com"><img class="web__logo" src="img/web.svg" alt="Symbole web">Tourisme à Bayeux ⮕</a>
+                <a class="web__lnk" href="https://bayeux-bessin-tourisme.com" target="_blank"><img class="web__logo" src="img/web.svg" alt="Symbole web">Tourisme à Bayeux ⮕</a>
             </section>
 
             <section class="section" aria-labelledby="dday-ttl">
