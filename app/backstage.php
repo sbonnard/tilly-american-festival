@@ -56,7 +56,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="event-dropdown-content">
+                    <div class="dropdown__list hidden" id="event-dropdown-content">
                         <ul class="band__list">
                             <?= getAllEventsAsList($allEvents) ?>
                         </ul>
@@ -69,7 +69,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="band-dropdown-content">
+                    <div class="dropdown__list hidden" id="band-dropdown-content">
                         <ul class="band__list">
                             <?= getAllBandsAsList($allBands) ?>
                         </ul>
@@ -82,7 +82,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                    <div class="dropdown__list hidden" id="sponsor-dropdown-content">
                         <?= listSponsorsHTML($allSponsors, '', $_SESSION); ?>
                     </div>
                 </section>
@@ -93,7 +93,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="merchant-dropdown-content">
+                    <div class="dropdown__list hidden" id="merchant-dropdown-content">
                         <?= listMerchantsHTML($activeMerchants, $_SESSION); ?>
                     </div>
                 </section>
@@ -104,7 +104,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="gallery-dropdown-content">
+                    <div class="dropdown__list hidden" id="gallery-dropdown-content">
                         <form class="form" action="backstage-actions.php" method="post" enctype="multipart/form-data">
                             <ul class="form__lst">
                                 <li class="form__item">

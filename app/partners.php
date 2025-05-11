@@ -44,7 +44,7 @@ if (isset($_SESSION['form'])) {
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                    <div class="dropdown__list hidden" id="sponsor-dropdown-content">
                         <?= listSponsorsHTML($activeSponsors); ?>
                     </div>
                 </section>
@@ -55,7 +55,7 @@ if (isset($_SESSION['form'])) {
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="merchant-dropdown-content">
+                    <div class="dropdown__list hidden" id="merchant-dropdown-content">
                         <?= listMerchantsHTML($activeMerchants); ?>
                     </div>
                 </section>
