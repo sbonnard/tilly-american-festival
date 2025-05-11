@@ -67,7 +67,7 @@ function listSponsorsHTML(array $sponsors, string $source = '', array $session =
             } else {
                 $sponsorList .= 'sponsor__button--inactive';
             }
-            $sponsorList .=' "></button>';
+            $sponsorList .= ' "></button>';
         }
 
         $sponsorList .= '<img class="sponsor__logo ';
@@ -77,6 +77,7 @@ function listSponsorsHTML(array $sponsors, string $source = '', array $session =
         }
 
         $sponsorList .= '" src="' . $source . 'img/' . $sponsor['logo_url'] . '" alt="' . $sponsor['name'] . '">
+                <p class="sponsor__name">' . $sponsor['name'] . '</p>
             </li>';
     }
 

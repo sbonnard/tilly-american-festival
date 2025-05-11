@@ -63,7 +63,7 @@ if (isset($_SESSION['form'])) {
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="attachment">Bannière de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
+                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
                     </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">

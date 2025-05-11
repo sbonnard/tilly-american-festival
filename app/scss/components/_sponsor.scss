@@ -26,7 +26,18 @@
     }
 
     &__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
         position: relative;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    &__name {
+        text-align: center;
+        width: 10rem;
     }
 
     &__button {

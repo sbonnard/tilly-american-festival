@@ -103,7 +103,7 @@ if (isset($_SESSION['form'])) {
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
+                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
                         <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
                     </li>
                 </ul>

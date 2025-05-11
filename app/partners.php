@@ -75,6 +75,6 @@ if (isset($_SESSION['form'])) {
     AOS.init();
 </script>
 <script type="module" src="js/burger.js"></script>
-<script type="module" src="js/dropdown.js"></script>
+<script type="module" src="js/dropdown-partners.js"></script>
 
 </html>
