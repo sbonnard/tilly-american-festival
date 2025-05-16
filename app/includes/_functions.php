@@ -348,22 +348,30 @@ function checkSelectedOption(array $session, string $option): string
     }
 }
 
+/**
+ * Checks if visitor is a bot.
+ */
+function isBot(): bool {
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+    $bots = [
+        'bot', 'crawl', 'spider', 'slurp', 'fetch', 'scan',
+        'python', 'perl', 'node', 'php', 'curl', 'wget', 'java',
+        'httpclient', 'libwww', 'headless', 'scrapy', 'wordpress', 'axios'
+    ];
+    foreach ($bots as $bot) {
+        if (stripos($userAgent, $bot) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
 
 /**
- * Counter for visit by page.
+ * Counts visitors of a page
  */
 function countPageVisit(string $pageName): void {
-    // Filtrer certains User-Agents connus de robots
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-
-    // Liste simple de robots (à enrichir si besoin)
-    $robots = ['bot', 'crawl', 'slurp', 'spider', 'mediapartners-google'];
-
-    // Si un mot-clé de robot est détecté, on ne compte pas
-    foreach ($robots as $robot) {
-        if (stripos($userAgent, $robot) !== false) {
-            return;
-        }
+    if (isBot()) {
+        return;
     }
 
     $dir = __DIR__ . '/counters';
