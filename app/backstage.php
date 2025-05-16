@@ -127,7 +127,7 @@ $allEvents = fetchAllEvents($dbCo);
                 </section>
 
                 <section class="section red-line">
-                    <h3 class="ttl ttl--small">Visites par pages :</h3>
+                    <h3 class="ttl ttl--small">Visites par pages</h3>
                     <p><span class="ttl--red">○</span> Page d'accueil : <?= getPageVisitCount("indexCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Où sommes-nous ? : <?= getPageVisitCount("whereTAFCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Nos partenaires : <?= getPageVisitCount("partnersCounter") ?><span class="ttl--red"> ○</span></p>
