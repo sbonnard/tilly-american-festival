@@ -347,3 +347,36 @@ function checkSelectedOption(array $session, string $option): string
         return '';
     }
 }
+
+
+/**
+ * Counter for visit by page.
+ */
+function countPageVisit(string $pageName): void {
+    $dir = __DIR__ . '/counters'; // chemin vers ton dossier de compteurs
+
+    // Crée le dossier s'il n'existe pas
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+
+    $file = "$dir/{$pageName}.txt";
+
+    // Initialise le fichier si besoin
+    if (!file_exists($file)) {
+        file_put_contents($file, 0);
+    }
+
+    // Lecture + incrémentation
+    $count = (int) file_get_contents($file);
+    $count++;
+    file_put_contents($file, $count);
+}
+
+/**
+ * Get visitors for one page
+ */
+function getPageVisitCount(string $pageName): int {
+    $file = __DIR__ . "/counters/{$pageName}.txt";
+    return file_exists($file) ? (int) file_get_contents($file) : 0;
+}

@@ -15,6 +15,8 @@ require_once 'includes/classes/class.sponsor.php';
 if (isset($_SESSION['form'])) {
     unset($_SESSION['form']);
 }
+
+countPageVisit('indexCounter')
 ?>
 
 <!DOCTYPE html>

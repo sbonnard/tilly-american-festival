@@ -19,6 +19,8 @@ generateToken();
 if (isset($_SESSION['form'])) {
     unset($_SESSION['form']);
 }
+
+countPageVisit('whereTAFCounter')
 ?>
 
 <!DOCTYPE html>

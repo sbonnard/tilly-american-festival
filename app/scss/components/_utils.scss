@@ -92,6 +92,12 @@ p {
     bottom: 12%;
 }
 
+.red-line {
+    border-top: 2px solid var.$red;
+    margin: 2rem 0;
+    padding-bottom: 2rem;
+}
+
 // .work-in-progress-page {
 //     position : relative;
 // }

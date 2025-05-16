@@ -48,6 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Échec du CAPTCHA. Essayez à nouveau.";
     }
 }
+
+countPageVisit('contactCounter')
 ?>
 
 <!DOCTYPE html>
