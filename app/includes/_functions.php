@@ -353,21 +353,30 @@ function checkSelectedOption(array $session, string $option): string
  * Counter for visit by page.
  */
 function countPageVisit(string $pageName): void {
-    $dir = __DIR__ . '/counters'; // chemin vers ton dossier de compteurs
+    // Filtrer certains User-Agents connus de robots
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
-    // Crée le dossier s'il n'existe pas
+    // Liste simple de robots (à enrichir si besoin)
+    $robots = ['bot', 'crawl', 'slurp', 'spider', 'mediapartners-google'];
+
+    // Si un mot-clé de robot est détecté, on ne compte pas
+    foreach ($robots as $robot) {
+        if (stripos($userAgent, $robot) !== false) {
+            return;
+        }
+    }
+
+    $dir = __DIR__ . '/counters';
     if (!is_dir($dir)) {
         mkdir($dir, 0755, true);
     }
 
     $file = "$dir/{$pageName}.txt";
 
-    // Initialise le fichier si besoin
     if (!file_exists($file)) {
         file_put_contents($file, 0);
     }
 
-    // Lecture + incrémentation
     $count = (int) file_get_contents($file);
     $count++;
     file_put_contents($file, $count);
