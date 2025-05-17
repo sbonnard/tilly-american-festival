@@ -1,6 +1,7 @@
 <?php
 
 global $dbCo;
+require_once '_isBot.php';
 
 /**
  * Redirect to the given URL or to the previous page if no URL is provided.
@@ -349,27 +350,10 @@ function checkSelectedOption(array $session, string $option): string
 }
 
 /**
- * Checks if visitor is a bot.
- */
-function isBot(): bool {
-    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-    $bots = [
-        'bot', 'crawl', 'spider', 'slurp', 'fetch', 'scan',
-        'python', 'perl', 'node', 'php', 'curl', 'wget', 'java',
-        'httpclient', 'libwww', 'headless', 'scrapy', 'wordpress', 'axios'
-    ];
-    foreach ($bots as $bot) {
-        if (stripos($userAgent, $bot) !== false) {
-            return true;
-        }
-    }
-    return false;
-}
-
-/**
  * Counts visitors of a page
  */
-function countPageVisit(string $pageName): void {
+function countPageVisit(string $pageName): void
+{
     if (isBot()) {
         return;
     }
@@ -393,7 +377,8 @@ function countPageVisit(string $pageName): void {
 /**
  * Get visitors for one page
  */
-function getPageVisitCount(string $pageName): int {
+function getPageVisitCount(string $pageName): int
+{
     $file = __DIR__ . "/counters/{$pageName}.txt";
     return file_exists($file) ? (int) file_get_contents($file) : 0;
 }
