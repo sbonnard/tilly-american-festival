@@ -127,7 +127,7 @@ $allEvents = fetchAllEvents($dbCo);
                 </section>
 
                 <section class="section red-line">
-                    <h3 class="ttl ttl--small">Visites par pages</h3>
+                    <h3 class="ttl ttl--small">Visites par pages*</h3>
                     <p><span class="ttl--red">○</span> Page d'accueil : <?= getPageVisitCount("indexCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Où sommes-nous ? : <?= getPageVisitCount("whereTAFCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Nos partenaires : <?= getPageVisitCount("partnersCounter") ?><span class="ttl--red"> ○</span></p>
@@ -135,6 +135,7 @@ $allEvents = fetchAllEvents($dbCo);
                     <p><span class="ttl--red">○</span> L'association : <?= getPageVisitCount("associationCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Nous contacter : <?= getPageVisitCount("contactCounter") ?><span class="ttl--red"> ○</span></p>
                     <p><span class="ttl--red">○</span> Contact partenaires : <?= getPageVisitCount("contactPartnerCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p>*Données de visite depuis le 17 mai 2025. Les chiffres de l'accueil et du contact sont faussés par la visite de robots.</p>
                 </section>
 
             </div>
