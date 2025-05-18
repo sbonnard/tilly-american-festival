@@ -41,7 +41,7 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
                     <a class="nav__lnk ' . $association . '" href="' . $source . 'association.php">L\'association</a>
                 </li>
                 <li class="nav__itm">
-                    <a class="nav__lnk ' . $contact . '" href="' . $source . 'contact.php">Nous contacter</a>
+                    <a class="nav__lnk ' . $contact . '" href="' . $source . 'contactTAF.php">Nous contacter</a>
                 </li>
                 ' . showLinkIfConnected($backstage, $logout, $source) . '
             </ul>

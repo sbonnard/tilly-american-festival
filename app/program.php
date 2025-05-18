@@ -73,6 +73,10 @@ $band = getBandInfos($dbCo);
                         <label class="form__label" for="time">Heure de passage <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input class="form__input" type="time" name="time" id="time" required>
                     </li>
+                    <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                        <label class="form__label middleName" for="middleName">middleName</label>
+                        <input type="text" class="middleName" name="middleName">
+                    </li>
                     <input type="hidden" name="band" value="<?= $band['id_band'] ?>">
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Programmer">

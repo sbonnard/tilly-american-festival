@@ -95,6 +95,10 @@ countPageVisit('contactCounter')
                         <label class="form__label" for="message">Votre message <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <textarea class="form__textarea" name="message" id="message" cols="30" rows="10" required><?= $message; ?></textarea>
                     </li>
+                    <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                        <label class="form__label middleName" for="middleName">middleName</label>
+                        <input type="text" class="middleName" name="middleName">
+                    </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Envoyer">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">

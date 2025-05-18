@@ -106,6 +106,10 @@ if (isset($_SESSION['form'])) {
                         <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
                         <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
                     </li>
+                    <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                        <label class="form__label middleName" for="middleName">middleName</label>
+                        <input type="text" class="middleName" name="middleName">
+                    </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
