@@ -43,7 +43,7 @@ countPageVisit('indexCounter')
             <section class="section" aria-labelledby="intro">
                 <h1 class="ttl" id="intro">Le festival</h1>
                 <h2 class="ttl ttl--big">Les <span class="ttl--red">12</span>, <span class="ttl--red">13</span> & <span class="ttl--red">14</span> Septembre <span class="ttl--red">2025</span></h2>
-                <img class="logo" src="img/logo.svg" alt="Logo du Tilly American Festival" data-aos="flip-right" data-aos-delay="600" data-aos-duration="1000">
+                <img class="logo" src="img/logold.svg" alt="Logo du Tilly American Festival" data-aos="flip-right" data-aos-delay="600" data-aos-duration="1000">
                 <p>Venez vivre un voyage dans le temps au cœur de la Normandie lors de notre festival unique célébrant la culture américaine des années 50 à 70 ! Plongez dans une ambiance vibrante où rockabilly, bluegrass et rock'n'roll se mêlent pour faire revivre les sons légendaires de cette époque dorée. Entouré de voitures anciennes étincelantes, de vêtements vintage et de déco rétro, vous serez transporté dans un univers où chaque détail rend hommage à l’esprit rebelle et dynamique des années passées. Un week-end à ne pas manquer pour les amateurs de musique, de culture et de nostalgie américaine !</p>
             </section>
 

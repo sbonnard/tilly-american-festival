@@ -16,7 +16,7 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
     $header =
         '<header class="header" data-aos="fade-down" data-aos-duration="500" data-aos-delay="500">
         <a href="index.php">
-            <img class="header__logo" src="' . $source . 'img/logo.svg" alt="Logo du Tilly American Festival">
+            <img class="header__logo" src="' . $source . 'img/logold.svg" alt="Logo du Tilly American Festival">
         </a>
         <div class="hamburger">
             <a href="#menu" id="hamburger-menu-icon" aria-label="Ouvrir le hamburger">
