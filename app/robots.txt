@@ -24,6 +24,8 @@ Disallow: /sponsor-form.php
 Disallow: /program.php
 Disallow: /roady.php
 Disallow: /backstage.php
+Disallow: /contact.php
+Disallow: /contact-partner.php
 
 # Log
 Disallow: /login.php

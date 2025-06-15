@@ -16,7 +16,7 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
     $header =
         '<header class="header" data-aos="fade-down" data-aos-duration="500" data-aos-delay="500">
         <a href="index.php">
-            <img class="header__logo" src="' . $source . 'img/logo.svg" alt="Logo du Tilly American Festival">
+            <img class="header__logo" src="' . $source . 'img/logold.svg" alt="Logo du Tilly American Festival">
         </a>
         <div class="hamburger">
             <a href="#menu" id="hamburger-menu-icon" aria-label="Ouvrir le hamburger">
@@ -41,7 +41,7 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
                     <a class="nav__lnk ' . $association . '" href="' . $source . 'association.php">L\'association</a>
                 </li>
                 <li class="nav__itm">
-                    <a class="nav__lnk ' . $contact . '" href="' . $source . 'contact.php">Nous contacter</a>
+                    <a class="nav__lnk ' . $contact . '" href="' . $source . 'contactTAF.php">Nous contacter</a>
                 </li>
                 ' . showLinkIfConnected($backstage, $logout, $source) . '
             </ul>

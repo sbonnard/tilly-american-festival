@@ -92,6 +92,21 @@ p {
     bottom: 12%;
 }
 
+.red-line {
+    border-top: 2px solid var.$red;
+    margin: 2rem 0;
+    padding-bottom: 2rem;
+}
+
+.middleName {
+    position: absolute;
+    left: -9999%;
+    overflow: hidden;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
 // .work-in-progress-page {
 //     position : relative;
 // }

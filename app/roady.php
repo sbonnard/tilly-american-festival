@@ -45,6 +45,10 @@ if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESS
                         <label class="form__label" for="password">Mot de passe <span class="form__asterisk" aria-hidden="true">*</span></label>
                         <input class="form__input" type="password" name="password" id="password" required placeholder="⦿⦿⦿⦿⦿⦿⦿⦿⦿⦿">
                     </li>
+                    <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                        <label class="form__label middleName" for="middleName">middleName</label>
+                        <input type="text" class="middleName" name="middleName">
+                    </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Connexion">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">

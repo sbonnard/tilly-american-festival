@@ -17,6 +17,10 @@ preventFromCSRF();
 
 if (isset($_POST['action'])) {
 
+    if (!empty($_POST['middleName'])) {
+        exit;
+    }
+
     if ($_POST['action'] === 'new-event') {
 
         // Gestion du fichier attaché
@@ -616,29 +620,29 @@ if (isset($_POST['action'])) {
             redirectTo();
             exit;
         }
-    
+
         $uploadDir = __DIR__ . '/gallery/'; // Dossier de destination
-    
+
         // Vérifier et créer le dossier si nécessaire
         if (!is_dir($uploadDir) && !mkdir($uploadDir, 0775, true) && !is_dir($uploadDir)) {
             throw new Exception("Impossible de créer le dossier d'upload.");
         }
-    
+
         $allowedTypes = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
         $uploadedFiles = [];
-    
+
         foreach ($_FILES['attachments']['name'] as $key => $name) {
             if ($_FILES['attachments']['error'][$key] === UPLOAD_ERR_OK) {
                 $fileType = mime_content_type($_FILES['attachments']['tmp_name'][$key]);
-    
+
                 if (in_array($fileType, $allowedTypes)) {
                     $fileName = pathinfo($name, PATHINFO_FILENAME);
                     $fileExtension = pathinfo($name, PATHINFO_EXTENSION);
-    
+
                     // Générer un nom unique
                     $uniqueFileName = $fileName . '_' . time() . '_' . uniqid() . '.' . $fileExtension;
                     $uploadFile = $uploadDir . $uniqueFileName;
-    
+
                     if (move_uploaded_file($_FILES['attachments']['tmp_name'][$key], $uploadFile)) {
                         $uploadedFiles[] = htmlspecialchars($uniqueFileName);
                     } else {
@@ -654,20 +658,20 @@ if (isset($_POST['action'])) {
                 continue;
             }
         }
-    
+
         if (!empty($uploadedFiles)) {
             try {
                 $dbCo->beginTransaction();
-    
+
                 $stmt = $dbCo->prepare("INSERT INTO gallery (id_event, file_url) VALUES (:event_id, :file_url)");
-    
+
                 foreach ($uploadedFiles as $file) {
                     $stmt->execute([
                         ':event_id' => intval($_POST['event-select']),
                         ':file_url' => $file
                     ]);
                 }
-    
+
                 $dbCo->commit();
                 addMessage('gallery_updated');
             } catch (Exception $e) {
@@ -675,7 +679,7 @@ if (isset($_POST['action'])) {
                 throw new Exception("Erreur lors de l'insertion en base : " . $e->getMessage());
             }
         }
-    
+
         redirectTo('backstage.php');
         exit;
     }

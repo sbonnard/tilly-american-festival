@@ -56,7 +56,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="event-dropdown-content">
+                    <div class="dropdown__list hidden" id="event-dropdown-content">
                         <ul class="band__list">
                             <?= getAllEventsAsList($allEvents) ?>
                         </ul>
@@ -69,7 +69,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="band-dropdown-content">
+                    <div class="dropdown__list hidden" id="band-dropdown-content">
                         <ul class="band__list">
                             <?= getAllBandsAsList($allBands) ?>
                         </ul>
@@ -82,7 +82,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                    <div class="dropdown__list hidden" id="sponsor-dropdown-content">
                         <?= listSponsorsHTML($allSponsors, '', $_SESSION); ?>
                     </div>
                 </section>
@@ -93,7 +93,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="merchant-dropdown-content">
+                    <div class="dropdown__list hidden" id="merchant-dropdown-content">
                         <?= listMerchantsHTML($activeMerchants, $_SESSION); ?>
                     </div>
                 </section>
@@ -104,7 +104,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="gallery-dropdown-content">
+                    <div class="dropdown__list hidden" id="gallery-dropdown-content">
                         <form class="form" action="backstage-actions.php" method="post" enctype="multipart/form-data">
                             <ul class="form__lst">
                                 <li class="form__item">
@@ -118,12 +118,28 @@ $allEvents = fetchAllEvents($dbCo);
                                     <label class="form__label" for="attachment">Photo de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
                                     <input type="file" name="attachments[]" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment" multiple>
                                 </li>
+                                <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                                    <label class="form__label middleName" for="middleName">middleName</label>
+                                    <input type="text" class="middleName" name="middleName">
+                                </li>
                             </ul>
                             <input class="button button--contact slide-right" type="submit" value="Valider">
                             <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
                             <input type="hidden" name="action" value="add-to-gallery">
                         </form>
                     </div>
+                </section>
+
+                <section class="section red-line">
+                    <h3 class="ttl ttl--small">Visites par pages*</h3>
+                    <p><span class="ttl--red">○</span> Page d'accueil : <?= getPageVisitCount("indexCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> Où sommes-nous ? : <?= getPageVisitCount("whereTAFCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> Nos partenaires : <?= getPageVisitCount("partnersCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> Galerie : <?= getPageVisitCount("galleryCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> L'association : <?= getPageVisitCount("associationCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> Nous contacter : <?= getPageVisitCount("contactCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p><span class="ttl--red">○</span> Contact partenaires : <?= getPageVisitCount("contactPartnerCounter") ?><span class="ttl--red"> ○</span></p>
+                    <p>*Données de visite depuis le 17 mai 2025. Les chiffres de l'accueil et du contact sont faussés par la visite de robots.</p>
                 </section>
 
             </div>

@@ -14,8 +14,8 @@ function fetchHead()
         <script type="module" src="http://localhost:5173/js/script.js"></script>
 
         <!-- Production -->
-        <!-- <link rel="stylesheet" href="build/assets/script-DETMqPBI.css">
-        <script type="module" src="build/assets/script-Dh_uEbM0.js"></script>
+        <!-- <link rel="stylesheet" href="build/assets/script-DETMqPBIi.css">
+        <script type="module" src="build/assets/script-Dh_uEbM00.js"></script>
         <script type="module" src="https://tillyamericanfestival.com/js/script.js"></script> -->
         
         <!-- AOS -->

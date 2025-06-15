@@ -103,8 +103,12 @@ if (isset($_SESSION['form'])) {
                     </li>
                     <li class="form__item">
                         <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment">
+                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
                         <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
+                    </li>
+                    <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
+                        <label class="form__label middleName" for="middleName">middleName</label>
+                        <input type="text" class="middleName" name="middleName">
                     </li>
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">

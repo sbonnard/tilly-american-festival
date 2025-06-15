@@ -1,6 +1,7 @@
 <?php
 
 global $dbCo;
+require_once '_isBot.php';
 
 /**
  * Redirect to the given URL or to the previous page if no URL is provided.
@@ -346,4 +347,38 @@ function checkSelectedOption(array $session, string $option): string
     } else {
         return '';
     }
+}
+
+/**
+ * Counts visitors of a page
+ */
+function countPageVisit(string $pageName): void
+{
+    if (isBot()) {
+        return;
+    }
+
+    $dir = __DIR__ . '/counters';
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
+
+    $file = "$dir/{$pageName}.txt";
+
+    if (!file_exists($file)) {
+        file_put_contents($file, 0);
+    }
+
+    $count = (int) file_get_contents($file);
+    $count++;
+    file_put_contents($file, $count);
+}
+
+/**
+ * Get visitors for one page
+ */
+function getPageVisitCount(string $pageName): int
+{
+    $file = __DIR__ . "/counters/{$pageName}.txt";
+    return file_exists($file) ? (int) file_get_contents($file) : 0;
 }

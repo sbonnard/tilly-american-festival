@@ -16,6 +16,8 @@ require_once 'includes/classes/class.merchant.php';
 if (isset($_SESSION['form'])) {
     unset($_SESSION['form']);
 }
+
+countPageVisit('partnersCounter')
 ?>
 
 <!DOCTYPE html>
@@ -44,7 +46,7 @@ if (isset($_SESSION['form'])) {
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="sponsor-dropdown-content">
+                    <div class="dropdown__list hidden" id="sponsor-dropdown-content">
                         <?= listSponsorsHTML($activeSponsors); ?>
                     </div>
                 </section>
@@ -55,7 +57,7 @@ if (isset($_SESSION['form'])) {
                         <img src="img/arrow-down.svg" alt="Flèche descendante">
                     </button>
 
-                    <div class="sponsor__container hidden" id="merchant-dropdown-content">
+                    <div class="dropdown__list hidden" id="merchant-dropdown-content">
                         <?= listMerchantsHTML($activeMerchants); ?>
                     </div>
                 </section>
@@ -75,6 +77,6 @@ if (isset($_SESSION['form'])) {
     AOS.init();
 </script>
 <script type="module" src="js/burger.js"></script>
-<script type="module" src="js/dropdown.js"></script>
+<script type="module" src="js/dropdown-partners.js"></script>
 
 </html>

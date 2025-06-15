@@ -14,6 +14,8 @@ require_once 'includes/classes/class.gallery.php';
 if (isset($_SESSION['form'])) {
     unset($_SESSION['form']);
 }
+
+countPageVisit('galleryCounter')
 ?>
 
 <!DOCTYPE html>

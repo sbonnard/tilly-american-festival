@@ -6,3 +6,4 @@ assets
 taf_db.sql
 build
 secretKey.php
+counters

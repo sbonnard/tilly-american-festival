@@ -17,6 +17,10 @@ preventFromCSRF();
 
 if (isset($_POST['action'])) {
 
+    if (!empty($_POST['middleName'])) {
+        exit;
+    }
+
     ///////////////////////////////////////////////////////// CONTACT PARTNER /////////////////////////////////////////////////////////
     if ($_POST['action'] === 'contact-partner') {
 
