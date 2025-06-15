@@ -105,3 +105,11 @@ p {
 //     background-color: var.$coal75;
 //     z-index: 20;
 // }
+
+.poster {
+    width: 35rem;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+    }
+}

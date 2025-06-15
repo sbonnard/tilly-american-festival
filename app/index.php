@@ -48,6 +48,7 @@ if (isset($_SESSION['form'])) {
             <section class="section" aria-labelledby="program">
                 <img class="horns" src="img/horns-ben.webp" alt="Cornes de boeuf">
                 <h2 class="ttl" id="program">La Programmation</h2>
+                <img class="poster" src="img/Affiche-TAF_3-WEB.webp" alt="Affiche du festival 2025">
 
                 <!-- // Programmation du vendredi -->
                 <?php if (!empty($bandsFriday)) { ?>
