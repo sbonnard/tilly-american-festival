@@ -39,20 +39,33 @@ $allBandEvent = getAllBandsFromEvent($dbCo, $_GET);
         <main class="main work-in-progress-page">
             <div class="container">
 
-                
+
                 <h1 class="ttl"><?= $myEvent['name'] ?></h1>
-                
+
                 <a href="gallery.php" class="button button--backstage">Retour galerie</a>
-                
+
                 <section class="section" aria-labelledby="events-ttl">
-                    <h2 class="ttl ttl--red" id="events-ttl">Galerie <?= $myEvent['year'] ?></h2>
+                    <?php
+                    if ($myEvent['is_taf'] === 1) {
+                        echo '<h2 class="ttl ttl--red" id="events-ttl">Galerie ' . $myEvent['year'] . '</h2>';
+                    } else {
+                        echo '<h2 class="ttl ttl--red" id="prog-ttl">Galerie de l\'évènement</h2>';
+                    }
+                    ?>
                     <div class="gallery">
                         <?= getPhotosAsHTML(getOneEventGalleryPhotos($dbCo, $_GET)); ?>
                     </div>
                 </section>
 
                 <section class="section" aria-labelledby="prog-ttl">
-                    <h2 class="ttl ttl--red" id="prog-ttl">Programmation <?= $myEvent['year'] ?></h2>
+                    <?php
+                    if ($myEvent['is_taf'] === 1) {
+                        echo '<h2 class="ttl ttl--red" id="prog-ttl">Programmation ' . $myEvent['year'] . '</h2>';
+                    } else {
+                        echo '<h2 class="ttl ttl--red" id="prog-ttl">Programmation</h2>';
+                    }
+                    ?>
+
                     <div class="gallery__artist-section">
                         <?= GetHTMLWallOfFame($allBandEvent); ?>
 
