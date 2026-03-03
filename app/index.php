@@ -57,7 +57,7 @@ countPageVisit('indexCounter')
                     <div class="section">
                         <h3 class="ttl ttl--small">Le vendredi</h3>
 
-                        <div class="section">
+                        <div class="artist__section">
                             <?= getBandAsHTML($dbCo, $bandsFriday); ?>
                         </div>
 
