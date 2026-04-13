@@ -265,7 +265,7 @@ if (isset($_POST['action'])) {
         $facebookLnk = $_POST['facebookLnk'];
         $instaLnk    = $_POST['instaLnk'];
         $webLnk      = $_POST['webLnk'];
-        $idBand      = $_POST['idBand'];
+        $idBand      = intval($_POST['idBand']);
 
         if (!intval($idBand) || $idBand <= 0) {
             addError('cantFindBand');
@@ -286,14 +286,14 @@ if (isset($_POST['action'])) {
         }
 
         try {
-            $query = 'UPDATE band SET name = :name, description = :description WHERE id_band = :idBand';
+            $queryUpdateBand = 'UPDATE band SET name = :name, description = :description WHERE id_band = :idBand';
             $bindValues = [
                 'idBand'      => $idBand,
                 'name'        => htmlspecialchars($name),
                 'description' => htmlspecialchars($description),
             ];
 
-            $isUpdateOk = $dbCo->prepare($query)->execute($bindValues);
+            $isUpdateOk = $dbCo->prepare($queryUpdateBand)->execute($bindValues);
 
             if ($isUpdateOk) {
                 $links = [
@@ -304,7 +304,7 @@ if (isset($_POST['action'])) {
                 ];
 
                 $linkUpdateOk = true;
-                $query = $dbCo->prepare(
+                $queryUpdateLink = $dbCo->prepare(
                     'UPDATE band_links SET url = :url WHERE id_band = :id_band AND id_website = :id_website'
                 );
 
@@ -315,7 +315,7 @@ if (isset($_POST['action'])) {
                             'id_band'    => intval($idBand),
                             'id_website' => intval($link['id_website']),
                         ];
-                        if (!$query->execute($bindValues)) {
+                        if (!$queryUpdateLink->execute($bindValues)) {
                             $linkUpdateOk = false;
                             break;
                         }
@@ -324,7 +324,8 @@ if (isset($_POST['action'])) {
 
                 if ($linkUpdateOk) {
                     addMessage('band_updated');
-                    redirectTo($globalURL . '/band.php?band='. $idBand);
+                    unset($_SESSION['form']);
+                    redirectTo($globalURL . '/band.php?band=' . $idBand);
                 } else {
                     $_SESSION['form']['bandName']     = $name;
                     $_SESSION['form']['description']  = $description;

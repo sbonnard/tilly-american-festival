@@ -15,58 +15,42 @@ require_once 'includes/classes/class.band.php';
 require_once 'includes/classes/class.event.php';
 
 generateToken();
-
 checkConnection($_SESSION);
 
-$name = '';
-$description = '';
-$youtubeLnk = '';
-$facebookLnk = '';
-$instaLnk = '';
-$webLnk = '';
+$name           = '';
+$description    = '';
+$youtubeLnk     = '';
+$facebookLnk    = '';
+$instaLnk       = '';
+$webLnk         = '';
 $formerAttachment = '';
-$band = [];
-$idBand = 0;
-
-if (isset($_SESSION['form'])) {
-
-    if (isset($_SESSION['form']['bandName'])) {
-        $name = $_SESSION['form']['bandName'];
-    }
-
-    if (isset($_SESSION['form']['description'])) {
-        $description = $_SESSION['form']['description'];
-    }
-
-    if (isset($_SESSION['form']['youtubeLnk'])) {
-        $youtubeLnk = $_SESSION['form']['youtubeLnk'];
-    }
-
-    if (isset($_SESSION['form']['facebookLnk'])) {
-        $facebookLnk = $_SESSION['form']['facebookLnk'];
-    }
-
-    if (isset($_SESSION['form']['instaLnk'])) {
-        $instaLnk = $_SESSION['form']['instaLnk'];
-    }
-
-    if (isset($_SESSION['form']['webLnk'])) {
-        $webLnk = $_SESSION['form']['webLnk'];
-    }
-
-    // Empty session after that
-    unset($_SESSION['form']);
-}
+$band           = [];
+$idBand         = 0;
 
 if (isset($_GET['band'])) {
-    $band = getOneBand($dbCo, $_GET);
-    $name = $band[0]['name'];
-    $description = $band[0]['description'];
-    $idBand = $band[0]['id_band'];
-    $youtubeLnk = fetchBandLinkByWebsite($dbCo, $_GET, $youtube);
-    $webLnk     = fetchBandLinkByWebsite($dbCo, $_GET, $website);
-    $instaLnk   = fetchBandLinkByWebsite($dbCo, $_GET, $instagram);
-    $facebookLnk = fetchBandLinkByWebsite($dbCo, $_GET, $facebook);
+    $band        = getOneBand($dbCo, $_GET);
+    $idBand      = $band[0]['id_band'];
+
+    if (!isset($_SESSION['form'])) {
+        $name        = $band[0]['name'];
+        $description = $band[0]['description'];
+        $youtubeLnk  = fetchBandLinkByWebsite($dbCo, $_GET, $youtube);
+        $webLnk      = fetchBandLinkByWebsite($dbCo, $_GET, $website);
+        $instaLnk    = fetchBandLinkByWebsite($dbCo, $_GET, $instagram);
+        $facebookLnk = fetchBandLinkByWebsite($dbCo, $_GET, $facebook);
+    }
+}
+
+if (isset($_SESSION['form'])) {
+    $name        = $_SESSION['form']['bandName']    ?? $name;
+    $description = $_SESSION['form']['description'] ?? $description;
+    $youtubeLnk  = $_SESSION['form']['youtubeLnk']  ?? $youtubeLnk;
+    $facebookLnk = $_SESSION['form']['facebookLnk'] ?? $facebookLnk;
+    $instaLnk    = $_SESSION['form']['instaLnk']    ?? $instaLnk;
+    $webLnk      = $_SESSION['form']['webLnk']      ?? $webLnk;
+    $idBand      = $_SESSION['form']['idBand']      ?? $idBand;
+
+    unset($_SESSION['form']);
 }
 ?>
 
