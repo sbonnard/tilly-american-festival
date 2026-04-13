@@ -24,34 +24,50 @@ $youtubeLnk = '';
 $facebookLnk = '';
 $instaLnk = '';
 $webLnk = '';
+$formerAttachment = '';
+$band = [];
+$idBand = 0;
 
 if (isset($_SESSION['form'])) {
 
     if (isset($_SESSION['form']['bandName'])) {
-        $_SESSION['form']['bandName'] = $name;
+        $name = $_SESSION['form']['bandName'];
     }
 
     if (isset($_SESSION['form']['description'])) {
-        $_SESSION['form']['description'] = $description;
+        $description = $_SESSION['form']['description'];
     }
 
     if (isset($_SESSION['form']['youtubeLnk'])) {
-        $_SESSION['form']['youtubeLnk'] = $youtubeLnk;
+        $youtubeLnk = $_SESSION['form']['youtubeLnk'];
     }
 
     if (isset($_SESSION['form']['facebookLnk'])) {
-        $_SESSION['form']['facebookLnk'] = $facebookLnk;
+        $facebookLnk = $_SESSION['form']['facebookLnk'];
     }
 
     if (isset($_SESSION['form']['instaLnk'])) {
-        $_SESSION['form']['instaLnk'] = $instaLnk;
+        $instaLnk = $_SESSION['form']['instaLnk'];
     }
 
     if (isset($_SESSION['form']['webLnk'])) {
-        $_SESSION['form']['webLnk'] = $webLnk;
+        $webLnk = $_SESSION['form']['webLnk'];
     }
+
+    // Empty session after that
+    unset($_SESSION['form']);
 }
 
+if (isset($_GET['band'])) {
+    $band = getOneBand($dbCo, $_GET);
+    $name = $band[0]['name'];
+    $description = $band[0]['description'];
+    $idBand = $band[0]['id_band'];
+    $youtubeLnk = fetchBandLinkByWebsite($dbCo, $_GET, $youtube);
+    $webLnk     = fetchBandLinkByWebsite($dbCo, $_GET, $website);
+    $instaLnk   = fetchBandLinkByWebsite($dbCo, $_GET, $instagram);
+    $facebookLnk = fetchBandLinkByWebsite($dbCo, $_GET, $facebook);
+}
 ?>
 
 <!DOCTYPE html>
@@ -101,11 +117,14 @@ if (isset($_SESSION['form'])) {
                         <label class="form__label" for="webLnk">Lien Site Officiel :</label>
                         <input class="form__input" type="text" name="webLnk" id="webLnk" value="<?= $webLnk; ?>">
                     </li>
-                    <li class="form__item">
-                        <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
-                        <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
-                        <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
-                    </li>
+                    <!-- We want to see this one only at creation. It will be another treatment for this special one because you can change infos from band without changing photo. -->
+                    <?php if ($idBand === 0) {
+                        echo '<li class="form__item">
+                            <label class="form__label" for="attachment">Photo du groupe <span class="form__asterisk" aria-hidden="true">*</span></label>
+                            <input type="file" name="attachment" id="attachment" accept=".png, .jpeg, .jpg, .webp">
+                            <input type="hidden" name="formerAttachment" value="<?= $formerAttachment; ?>">
+                        </li>';
+                    } ?>
                     <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
                         <label class="form__label middleName" for="middleName">middleName</label>
                         <input type="text" class="middleName" name="middleName">
@@ -113,7 +132,14 @@ if (isset($_SESSION['form'])) {
                 </ul>
                 <input class="button button--contact slide-right" type="submit" value="Valider">
                 <input type="hidden" name="token" value="<?= $_SESSION['token'] ?>">
-                <input type="hidden" name="action" value="new-band">
+                <input type="hidden" name="idBand" value="<?= $idBand ?>">
+                <?php if ($idBand > 0) {
+                    // Modify a band 
+                    echo '<input type="hidden" name="action" value="modify-band">';
+                } else {
+                    // Create a band -->
+                    echo '<input type="hidden" name="action" value="new-band">';
+                } ?>
             </form>
 
         </div>

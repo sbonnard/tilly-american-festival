@@ -116,6 +116,24 @@ function fetchBandLinks(PDO $dbCo, array $band): array | null
     return $queryBandLinks->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function fetchBandLinkByWebsite(PDO $dbCo, array $get, int $idWebsite):string
+{
+    $queryBandLinks = $dbCo->prepare(
+        'SELECT url, id_band
+        FROM band_links
+        WHERE id_band = :id_band
+        AND id_website = :id_website;'
+    );
+
+    $bindValues = [
+        'id_band' => $get['band'],
+        'id_website' => $idWebsite
+    ];
+
+    $queryBandLinks->execute($bindValues);
+
+    return $queryBandLinks->fetch(PDO::FETCH_ASSOC)['url'] ?? '';
+}
 
 /**
  * Fetch all bands from database.

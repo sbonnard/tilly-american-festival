@@ -257,6 +257,97 @@ if (isset($_POST['action'])) {
 
             redirectTo();
         }
+    } else if ($_POST['action'] === 'modify-band') {
+
+        $name        = $_POST['bandName'];
+        $description = $_POST['description'];
+        $youtubeLnk  = $_POST['youtubeLnk'];
+        $facebookLnk = $_POST['facebookLnk'];
+        $instaLnk    = $_POST['instaLnk'];
+        $webLnk      = $_POST['webLnk'];
+        $idBand      = $_POST['idBand'];
+
+        if (!intval($idBand) || $idBand <= 0) {
+            addError('cantFindBand');
+            redirectTo();
+            exit;
+        }
+
+        if (!isset($name) || $name === '') {
+            addError('bandName_ko');
+            redirectTo();
+            exit;
+        }
+
+        if (!isset($description) || $description === '') {
+            addError('band_description_ko');
+            redirectTo();
+            exit;
+        }
+
+        try {
+            $query = 'UPDATE band SET name = :name, description = :description WHERE id_band = :idBand';
+            $bindValues = [
+                'idBand'      => $idBand,
+                'name'        => htmlspecialchars($name),
+                'description' => htmlspecialchars($description),
+            ];
+
+            $isUpdateOk = $dbCo->prepare($query)->execute($bindValues);
+
+            if ($isUpdateOk) {
+                $links = [
+                    ['url' => $youtubeLnk,  'id_website' => 1],
+                    ['url' => $webLnk,      'id_website' => 2],
+                    ['url' => $instaLnk,    'id_website' => 3],
+                    ['url' => $facebookLnk, 'id_website' => 4],
+                ];
+
+                $linkUpdateOk = true;
+                $query = $dbCo->prepare(
+                    'UPDATE band_links SET url = :url WHERE id_band = :id_band AND id_website = :id_website'
+                );
+
+                foreach ($links as $link) {
+                    if (!empty($link['url'])) {
+                        $bindValues = [
+                            'url'        => htmlspecialchars($link['url']),
+                            'id_band'    => intval($idBand),
+                            'id_website' => intval($link['id_website']),
+                        ];
+                        if (!$query->execute($bindValues)) {
+                            $linkUpdateOk = false;
+                            break;
+                        }
+                    }
+                }
+
+                if ($linkUpdateOk) {
+                    addMessage('band_updated');
+                    redirectTo($globalURL . '/band.php?band='. $idBand);
+                } else {
+                    $_SESSION['form']['bandName']     = $name;
+                    $_SESSION['form']['description']  = $description;
+                    $_SESSION['form']['youtubeLnk']   = $youtubeLnk;
+                    $_SESSION['form']['facebookLnk']  = $facebookLnk;
+                    $_SESSION['form']['instaLnk']     = $instaLnk;
+                    $_SESSION['form']['webLnk']       = $webLnk;
+                    addError('band_links_error');
+                    redirectTo();
+                }
+            }
+        } catch (Exception $e) {
+            $_SESSION['form']['bandName']     = $_POST['bandName'];
+            $_SESSION['form']['description']  = $_POST['description'];
+            $_SESSION['form']['youtubeLnk']   = $_POST['youtubeLnk'];
+            $_SESSION['form']['facebookLnk']  = $_POST['facebookLnk'];
+            $_SESSION['form']['instaLnk']     = $_POST['instaLnk'];
+            $_SESSION['form']['webLnk']       = $_POST['webLnk'];
+            addError('band_not_modified');
+            var_dump($e->getMessage());
+            redirectTo();
+            exit;
+        }
     } else if ($_REQUEST['action'] === 'program') {
 
         if (!isset($_POST['event']) || !intval($_POST['event'])) {

@@ -42,7 +42,9 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
         <div class="container">
 
             <a href="backstage.php" class="button button--backstage">Retour aux backstages</a>
-
+            <a href="band-form.php?band=<?= $_GET['band'] ?>" class="button button--backstage">Modifier groupe</a>
+            <?= getErrorMessage($errors); ?>
+            <?= getSuccessMessage($messages); ?>
             <div class="container--flex">
                 <div class="section" aria-labelledby="band-ttl">
                     <h3 class="ttl ttl--small" id="band-ttl">Fiche du groupe</h3>
@@ -65,7 +67,6 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
             </div>
 
         </div>
-
 
         <?= displayCowquitaf(); ?>
 

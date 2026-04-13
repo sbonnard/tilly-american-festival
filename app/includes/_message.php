@@ -48,7 +48,10 @@ $errors = [
     'merchant_image_ko' => 'Le fichier saisi n\'est pas valide en illustration de l\'exposant.',
     'merchant_not_created' => 'L\'exposant n\'a pas pu etre cree.',
     'band_update_error' => 'Le groupe n\'a pas pu être mis à jour.',
-    'event_select_error' => 'Merci de choisir un evenement.'
+    'event_select_error' => 'Merci de choisir un evenement.',
+    'cantFindBand' => 'Groupe à modifier introuvable',
+    'band_not_modified' => 'Échec lors de la modification du groupe',
+    'band_updated' => 'Groupe modifié !'
 ];
 
 
