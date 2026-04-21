@@ -13,6 +13,10 @@
     background-position: center;
     background-attachment: fixed;
 
+    @media screen and (max-width: 768px) {
+        background-image: url(../img/road-mobile.webp);
+    }
+
     &__container {
         display: flex;
         align-items: center;

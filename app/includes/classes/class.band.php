@@ -71,14 +71,14 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
     foreach ($bands as $key => $band) {
         $htmlBands .= '<div class="artist" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">
             <h4 class="artist__name">' . $band['name'] . '</h4>
-            <img class="artist__img" src="img/' . $band['img_url'] . '" alt="Photo de ' . $band['name'] . '">
+            <img class="artist__img" loading="lazy" src="img/' . $band['img_url'] . '" alt="Photo de ' . $band['name'] . '">
             <p class="artist__description">' . $band['description'] . '</p>
             <div class="linktree">';
 
         foreach (fetchBandLinks($dbCo, $band) as $link) {
             $htmlBands .= '
                 <a href="' . $link['url'] . '" target="_blank">
-                    <img class="linktree__icon" src="img/' . $link['logo_url'] . '" alt="Logo ' . $link['name'] . '">
+                    <img loading="lazy" class="linktree__icon" src="img/' . $link['logo_url'] . '" alt="Logo ' . $link['name'] . '">
                 </a>';
         }
 

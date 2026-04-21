@@ -12,6 +12,10 @@ body {
   cursor: default;
   overflow-x: hidden;
   min-height: 100vh;
+  
+  @media screen and (max-width: 768px) {
+    background-image: url(../img/darkwood-mobile.webp);
+  }
 }
 
 html {
