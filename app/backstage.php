@@ -108,7 +108,7 @@ $allEvents = fetchAllEvents($dbCo);
                         <form class="form" action="backstage-actions.php" method="post" enctype="multipart/form-data">
                             <ul class="form__lst">
                                 <li class="form__item">
-                                    <label class="form__label" for="attachment">Sélectionnez un évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
+                                    <label class="form__label">Sélectionnez un évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
                                     <select class="form__input" name="event-select" id="event-select" required>
                                         <option value="">-- Choisissez un évènement --</option>
                                         <?= getAllEventsAsSelectOptions($allEvents) ?>
@@ -119,7 +119,7 @@ $allEvents = fetchAllEvents($dbCo);
                                     <input type="file" name="attachments[]" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment" multiple>
                                 </li>
                                 <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
-                                    <label class="form__label middleName" for="middleName">middleName</label>
+                                    <label class="form__label middleName">middleName</label>
                                     <input type="text" class="middleName" name="middleName">
                                 </li>
                             </ul>
