@@ -11,7 +11,7 @@
  * @param string $contact - The class name for the contact link.
  * @return string - The HTML content for the header.
  */
-function fetchHeader(string $home = '', string $where = '', string $partners = '', string $gallery = '', string $association = '', string $contact = '', string $source = '', string $backstage = '', string $logout = ''): string
+function fetchHeader(bool $isBoxOfficeOpened, string $home = '', string $where = '', string $partners = '', string $gallery = '', string $association = '', string $contact = '', string $source = '', string $backstage = '', string $logout = '', string $boxoffice = ''): string
 {
     $header =
         '<header class="header" data-aos="fade-down" data-aos-duration="500" data-aos-delay="500">
@@ -27,8 +27,14 @@ function fetchHeader(string $home = '', string $where = '', string $partners = '
             <ul class="nav__lst" id="nav-list">
                 <li class="nav__itm">
                     <a class="nav__lnk ' . $home . '" href="' . $source . 'index.php">Accueil</a>
-                </li>
-                <li class="nav__itm">
+                </li>';
+
+    if ($isBoxOfficeOpened) {
+        $header .= '<li class="nav__itm">
+                    <a class="button button--boxoffice button--boxoffice--header ' . $boxoffice . '" href="' . $source . 'boxoffice.php">Billeterie</a>
+                </li>';
+    }
+    $header .= '<li class="nav__itm">
                     <a class="nav__lnk ' . $where . '" href="' . $source . 'wheretaf.php">Où sommes-nous ?</a>
                 </li>
                 <li class="nav__itm">

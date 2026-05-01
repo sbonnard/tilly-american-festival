@@ -6,6 +6,7 @@ require_once 'classes/class.sponsor.php';
 require_once 'classes/class.merchant.php';
 require_once 'classes/class.gallery.php';
 
+
 // Les groupes du vendredi.
 $bandsFriday = getBandPerYearPerDay($dbCo, 6);
 
@@ -43,3 +44,7 @@ $youtube = 1;
 $website = 2;
 $instagram = 3;
 $facebook = 4;
+
+
+// Display boxoffice
+$BoxOfficeOpened = true;

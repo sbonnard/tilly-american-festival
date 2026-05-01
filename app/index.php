@@ -28,7 +28,7 @@ countPageVisit('indexCounter')
 
 <body>
 
-    <?= fetchHeader('nav__lnk--current'); ?>
+    <?= fetchHeader($BoxOfficeOpened, 'nav__lnk--current'); ?>
 
     <main>
         <div class="herobanner" data-aos="zoom-in">
@@ -45,6 +45,7 @@ countPageVisit('indexCounter')
                 <h2 class="ttl ttl--big">Les <span class="ttl--red">18</span>, <span class="ttl--red">19</span> & <span class="ttl--red">20</span> Septembre <span class="ttl--red">2026</span></h2>
                 <img class="logo" src="img/logold.svg" alt="Logo du Tilly American Festival" data-aos="flip-right" data-aos-delay="600" data-aos-duration="1000" loading="lazy">
                 <p>Venez vivre un voyage dans le temps au cœur de la Normandie lors de notre festival unique célébrant la culture américaine des années 40 et 50 ! Plongez dans une ambiance vibrante où rockabilly, bluegrass et rock'n'roll se mêlent pour faire revivre les sons légendaires de cette époque dorée. Entouré de voitures anciennes étincelantes, de vêtements vintage et de déco rétro, vous serez transporté dans un univers où chaque détail rend hommage à l’esprit rebelle et dynamique des années passées. Un week-end à ne pas manquer pour les amateurs de musique, de culture et de nostalgie américaine !</p>
+                <?= displayBoxOffice($BoxOfficeOpened) ?>
             </section>
 
             <section class="section" aria-labelledby="program">
@@ -96,6 +97,7 @@ countPageVisit('indexCounter')
                     </div>
                 </div>
 
+                <?= displayBoxOffice($BoxOfficeOpened) ?>
             </section>
 
         </div>

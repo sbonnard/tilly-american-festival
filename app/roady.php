@@ -27,7 +27,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['id_roady']) && isset($_SESS
 
 <body>
 
-    <?= fetchHeader(); ?>
+    <?= fetchHeader($BoxOfficeOpened); ?>
 
     <main class="main">
         <div class="container">

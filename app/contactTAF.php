@@ -61,7 +61,7 @@ countPageVisit('contactCounter')
 
 <body>
 
-    <?= fetchHeader('', '', '', '', '', 'nav__lnk--current'); ?>
+    <?= fetchHeader($BoxOfficeOpened, '', '', '', '', '', 'nav__lnk--current'); ?>
 
     <main class="main">
         <div class="container">

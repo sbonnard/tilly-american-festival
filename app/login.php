@@ -23,7 +23,7 @@ if (!isset($_POST['action'])) {
 }
 
 // Check CSRF
-preventFromCSRF('index.php');
+preventFromCSRF();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['action'] === 'login') {
 

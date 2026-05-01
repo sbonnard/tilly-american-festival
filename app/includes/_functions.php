@@ -382,3 +382,16 @@ function getPageVisitCount(string $pageName): int
     $file = __DIR__ . "/counters/{$pageName}.txt";
     return file_exists($file) ? (int) file_get_contents($file) : 0;
 }
+
+
+function displayBoxOffice(bool $BoxOfficeOpened):string {
+    if ($BoxOfficeOpened) {
+        return '<div class="boxoffice-pulse">
+                    <span class="pulse-ring"></span>
+                    <span class="pulse-ring"></span>
+                    <a class="button button--boxoffice button--boxoffice--normal">Réservez vos billets maintenant !</a>
+                </div>';
+    } else {
+        return '';
+    }
+}

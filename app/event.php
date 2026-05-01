@@ -36,7 +36,7 @@ if (isset($_GET['band']) && intval($_GET['band']) && $_GET['band'] > 0) {
 
 <body>
 
-    <?= fetchHeader('', '', '', '', '', '', '', 'nav__lnk--current'); ?>
+    <?= fetchHeader($BoxOfficeOpened, '', '', '', '', '', '', '', 'nav__lnk--current'); ?>
 
     <main class="main">
         <div class="container">

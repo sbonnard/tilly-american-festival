@@ -33,7 +33,7 @@ $allBandEvent = getAllBandsFromEvent($dbCo, $_GET);
 
 <body>
 
-    <?= fetchHeader('', '', '', 'nav__lnk--current'); ?>
+    <?= fetchHeader($BoxOfficeOpened, '', '', '', 'nav__lnk--current'); ?>
 
     <div class="work-in-progress-filter">
         <main class="main work-in-progress-page">
