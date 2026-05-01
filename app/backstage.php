@@ -115,7 +115,7 @@ $allEvents = fetchAllEvents($dbCo);
                                     </select>
                                 </li>
                                 <li class="form__item">
-                                    <label class="form__label" for="attachment">Photo de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
+                                    <label class="form__label">Photo de l'évènement <span class="form__asterisk" aria-hidden="true">*</span></label>
                                     <input type="file" name="attachments[]" id="attachment" accept=".png, .jpeg, .jpg, .webp" capture="environment" multiple>
                                 </li>
                                 <li class="form__item" class="middleName" aria-hidden="true" tab="-1">
