@@ -94,7 +94,7 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
  * Fetch all links for a band.
  *
  * @param PDO $dbCo - Connection to database.
- * @param array $bands - The band array.
+ * @param array $band - The band array.
  * @return array - An array containing all links for a band.
  */
 function fetchBandLinks(PDO $dbCo, array $band): array | null
@@ -337,7 +337,7 @@ function GetHTMLWallOfFame(array $wallOfFame): string
 function getAllBandsForWallOfFame(PDO $dbCo): array
 {
     $queryBand = $dbCo->query(
-        'SELECT band.id_band, band.name
+        'SELECT DISTINCT band.id_band, band.name
         FROM band
         JOIN band_event ON band.id_band = band_event.id_band
         WHERE band_event.date < CURDATE();'
@@ -354,7 +354,7 @@ function getAllBandsForWallOfFame(PDO $dbCo): array
  * Fetch all links for a band.
  *
  * @param PDO $dbCo - Connection to database.
- * @param array $bands - The band array.
+ * @param array $site - The band array.
  * @return array - An array containing all links for a band.
  */
 function fetchBandLinksPerSite(PDO $dbCo, int $site): array | null
