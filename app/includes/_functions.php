@@ -72,7 +72,7 @@ function formatPrice(float|int $price, string $currency): string
 /**
  * Format a month and year into a readable French format. Example : '2024-12' -> 'Décembre 2024'.
  *
- * @param string $yearAndMonth - The year and month to format.
+ * @param string $yearMonthDay - The year and month to format.
  * @return string - The formatted date string.
  */
 function formatFrenchDate(string $yearMonthDay): string
@@ -389,7 +389,7 @@ function displayBoxOffice(bool $BoxOfficeOpened):string {
         return '<div class="boxoffice-pulse">
                     <span class="pulse-ring"></span>
                     <span class="pulse-ring"></span>
-                    <a class="button button--boxoffice button--boxoffice--normal">Réservez vos billets maintenant !</a>
+                    <a href="' . BOXOFFICE_URL . '" class="button button--boxoffice button--boxoffice--normal" target="blank">Réservez vos billets maintenant !</a>
                 </div>';
     } else {
         return '';

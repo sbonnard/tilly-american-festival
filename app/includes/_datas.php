@@ -48,3 +48,4 @@ $facebook = 4;
 
 // Display boxoffice
 $BoxOfficeOpened = true;
+define('BOXOFFICE_URL', 'https://fr.wikipedia.org/wiki/Ronda_Rousey');

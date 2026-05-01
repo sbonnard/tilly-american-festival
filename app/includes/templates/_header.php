@@ -31,7 +31,7 @@ function fetchHeader(bool $isBoxOfficeOpened, string $home = '', string $where =
 
     if ($isBoxOfficeOpened) {
         $header .= '<li class="nav__itm">
-                    <a class="button button--boxoffice button--boxoffice--header ' . $boxoffice . '" href="' . $source . 'boxoffice.php">Billeterie</a>
+                    <a class="button button--boxoffice button--boxoffice--header ' . $boxoffice . '" href="' . BOXOFFICE_URL . '" target="blank">Billeterie</a>
                 </li>';
     }
     $header .= '<li class="nav__itm">
