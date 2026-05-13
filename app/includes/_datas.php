@@ -6,6 +6,13 @@ require_once 'classes/class.sponsor.php';
 require_once 'classes/class.merchant.php';
 require_once 'classes/class.gallery.php';
 
+// Build JS et CSS
+define ('buildJS', 'build/assets/script-Czvd6B10.js');
+define ('buildCSS', 'build/assets/script-PcbNFCGXLOLOo.css');
+
+// Display boxoffice
+$BoxOfficeOpened = true;
+define('BOXOFFICE_URL', 'https://my.weezevent.com/tilly-american-festival');
 
 // Les groupes du vendredi.
 $bandsFriday = getBandPerYearPerDay($dbCo, 6);
@@ -45,7 +52,3 @@ $website = 2;
 $instagram = 3;
 $facebook = 4;
 
-
-// Display boxoffice
-$BoxOfficeOpened = true;
-define('BOXOFFICE_URL', 'https://fr.wikipedia.org/wiki/Ronda_Rousey');
