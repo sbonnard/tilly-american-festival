@@ -1,7 +1,7 @@
 {
-  "name": "taf",
+  "name": "rolist-mingle",
   "version": "1.0.0",
-  "description": "Tilly American Festival",
+  "description": "A web app to mingle with other rolists and play more often.",
   "main": "js/script.js",
   "type": "module",
   "scripts": {
@@ -17,13 +17,14 @@
     "npm": ">=10.0.0"
   },
   "devDependencies": {
-    "sass": "^1.80.7",
+    "rollup": "^4.22.5",
+    "sass": "^1.77.3",
     "vite": "^8.0.8"
-  },
-  "dependencies": {
-    "aos": "^2.3.4"
   },
   "overrides": {
     "esbuild": ">=0.25.0"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true
   }
 }
