@@ -63,7 +63,7 @@ function getBandPerYearPerDay(PDO $dbCo, int $theDay): array
 function getBandAsHTML(PDO $dbCo, array $bands): string
 {
     $htmlBands = '';
-
+    
     if (empty($bands)) {
         return $htmlBands = '<p class="artist__empty">La programmation arrive bientôt !</p>';
     }
@@ -71,6 +71,7 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
     foreach ($bands as $key => $band) {
         $htmlBands .= '<div class="artist" data-aos="flip-up" data-aos-delay="300" data-aos-duration="1500">
             <h4 class="artist__name">' . $band['name'] . '</h4>
+            <h5 class="artist__hour">' . substr($band['hour'], 0, 5) . '</h5>
             <img class="artist__img" loading="lazy" src="img/' . $band['img_url'] . '" alt="Photo de ' . $band['name'] . '">
             <p class="artist__description">' . $band['description'] . '</p>
             <div class="linktree">';
@@ -97,7 +98,7 @@ function getBandAsHTML(PDO $dbCo, array $bands): string
  * @param array $band - The band array.
  * @return array - An array containing all links for a band.
  */
-function fetchBandLinks(PDO $dbCo, array $band): array | null
+function fetchBandLinks(PDO $dbCo, array $band): array|null
 {
     $queryBandLinks = $dbCo->prepare(
         'SELECT url, id_band, logo_url, name
@@ -116,7 +117,7 @@ function fetchBandLinks(PDO $dbCo, array $band): array | null
     return $queryBandLinks->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function fetchBandLinkByWebsite(PDO $dbCo, array $get, int $idWebsite):string
+function fetchBandLinkByWebsite(PDO $dbCo, array $get, int $idWebsite): string
 {
     $queryBandLinks = $dbCo->prepare(
         'SELECT url, id_band
@@ -357,7 +358,7 @@ function getAllBandsForWallOfFame(PDO $dbCo): array
  * @param array $site - The band array.
  * @return array - An array containing all links for a band.
  */
-function fetchBandLinksPerSite(PDO $dbCo, int $site): array | null
+function fetchBandLinksPerSite(PDO $dbCo, int $site): array|null
 {
     $queryBandLinks = $dbCo->prepare(
         'SELECT band_links.url

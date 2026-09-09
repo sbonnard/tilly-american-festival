@@ -7,8 +7,8 @@ require_once 'classes/class.merchant.php';
 require_once 'classes/class.gallery.php';
 
 // Build JS et CSS
-define ('buildJS', 'build/assets/script-Czvd6B10.js');
-define ('buildCSS', 'build/assets/script-PcbNFCGXLOLOo.css');
+define ('buildJS', 'build/assets/script--yVC-liR.js');
+define ('buildCSS', 'build/assets/script-ByE4fPZ6-LL.css');
 
 // Display boxoffice
 $BoxOfficeOpened = true;

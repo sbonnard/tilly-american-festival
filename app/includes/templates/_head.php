@@ -86,13 +86,13 @@ function fetchHead()
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
  
         <!-- Production -->
-        <link rel="stylesheet" href="' . buildCSS . '">
+        <!--  <link rel="stylesheet" href="' . buildCSS . '">
         <script type="module" src="' . buildJS . '"></script> 
-        <script type="module" src="https://tillyamericanfestival.com/js/script.js"></script>
+        <script type="module" src="https://tillyamericanfestival.com/js/script.js"></script> -->
     
         <!-- Développement -->
-       <!--  <script type="module" src="http://localhost:5173/@vite/client"></script>
-        <script type="module" src="http://localhost:5173/js/script.js"></script> -->
+       <script type="module" src="http://localhost:5173/@vite/client"></script>
+        <script type="module" src="http://localhost:5173/js/script.js"></script>
     ';
 }
 

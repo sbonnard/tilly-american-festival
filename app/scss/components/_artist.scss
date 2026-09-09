@@ -24,6 +24,15 @@
         }
     }
 
+    &__hour {
+        font-family: 'backcountry', sans-serif;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 0.2rem;
+        font-size: 1.5rem;
+        color:var.$red;
+    }
+
     &__img {
         width: 18.75rem;
         // aspect-ratio: 1/1;
